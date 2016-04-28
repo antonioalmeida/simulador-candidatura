@@ -1,4 +1,21 @@
 
+//Clipboardjs
+var clipboard = new Clipboard('.clip', {
+  text: function() {
+    return 'http://simulcand.whoisantonio.com';
+  }
+});
+
+clipboard.on('success', function(e) {
+  console.log(e);
+});
+
+clipboard.on('error', function(e) {
+  console.log(e);
+});
+
+//Facebook Share Link
+
 
 
 
