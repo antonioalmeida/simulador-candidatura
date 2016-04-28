@@ -3,13 +3,13 @@
 }
 .jumbotron h1 {
   color: white;
-  font-size: 51px;
+  font-size: 50px;
 }
 .jumbotron p {
   color: #D3D3D4;
 }
 footer {
-  background-color: rgb(57, 149, 247);
+  background-color: rgb(31, 29, 36);
   color: white;
 }
 footer a {
@@ -76,4 +76,15 @@ fieldset[disabled] .btn-default.active {
 .btn-default .badge {
   color: #fff;
   background-color: #fff;
+}
+
+.navbar-default {
+  background-color: #fff;
+}
+.navbar-brand span, .navbar-brand i, #bs-example-navbar-collapse-1 a {
+  color: rgb(57, 149, 247);
+  font-weight: bold;
+}
+.navbar {
+  margin-bottom:0;
 }
