@@ -68,10 +68,19 @@ function closeDivErro() {
   div = document.getElementById("erro");
   div.style.display = "none";
 };
+
 /*  function showDivModal() {
 div = document.getElementById("modal");
 div.style.display = "block";
 };*/
+
+$(document).ready(function() {
+
+    //Toggle grades' box when respective checkbox is clicked
+    $(".checker").click(function() {
+        $(this).next().toggle();
+    });
+});
 
 function ola() {
 
