@@ -22,16 +22,24 @@ $(document).ready(function() {
         $(this).next().toggle();
     });
 
+    //Same as above but specific for 2nd phase exams
+    $(".checkerPhase2").click(function() {
+        $(this).next().toggle();
+        $(this).next().next().toggle();
+    });
+
     //Bootstap's tooltip
     $('[data-toggle="tooltip"]').tooltip();
 
 });
 
-//Calculalte CIF (without exams)
+
+//Calculate a unit's CIF (without exams)
 var calculateUnitInternalScore = function(index) {
     var values = $('input[name^=grade' + index + ']').map(function(idx, elem) {
-        return parseint($(elem).val());
+        return parseInt($(elem).val());
     }).get();
+    var sum = values.reduce(function(a,b) {return a+b});
     return Math.round(sum/values.length);
 }
 
@@ -49,13 +57,40 @@ var getUnitExams = function(index) {
     return values;
 }
 
+//Calculates all CIFs - returns an array with the results
+var calculateCIFs = function() {
+    var res = [];
+    for(var i = 0; i < 9; i++)
+        res.push(calculateUnitInternalScore(i));
+    return res;
+}
+
+//Calculates all CFDs (First Phase)- returns an array with the results
+var calculateFirstCFDs = function() {
+    var currentExams = [];
+    var res = [];
+    var currentCFD = 0;
+    for(var i = 0; i < 9; i++) {
+        currentExams = getUnitExams(i);
+
+        if(currentExams[0]) { //Exame 1ª Fase
+            currentCFD = Math.round(0.7 * cif[i] + 0.03 * currentExams[1]); //CFD = 70% CIF + 30% Exam
+            res.push(currentCFD);
+            continue;
+        }
+
+        //No exam
+        res.push(cif[i]);
+    }
+    return res;
+}
 
 
+//Array with the units' CIFs (each index corresponds to a unit, according to the order in the table)
+var cif = calculateCIFs();
 
-
-
-
-
+//Array with the unit's CFDs for the first phase (each index corresponds to a unit, according to the order in the table)
+var cfdFirst = calculateFirstCFDs();
 
 
 
