@@ -14,7 +14,54 @@ clipboard.on('error', function(e) {
   console.log(e);
 });
 
-//Facebook Share Link
+
+$(document).ready(function() {
+
+    //Toggle grades' box when respective checkbox is clicked
+    $(".checker").click(function() {
+        $(this).next().toggle();
+    });
+
+    //Bootstap's tooltip
+    $('[data-toggle="tooltip"]').tooltip();
+
+});
+
+//Calculalte CIF (without exams)
+var calculateUnitInternalScore = function(index) {
+    var values = $('input[name^=grade' + index + ']').map(function(idx, elem) {
+        return parseint($(elem).val());
+    }).get();
+    return Math.round(sum/values.length);
+}
+
+//Get exams' values (including checkboxes)
+var getUnitExams = function(index) {
+    var values = $('input[name^=exam' + index + ']').map(function(idx, elem) {
+        //if current value is a number (actually, a string that holds a number), return the value (as a number)
+        var currentValue = parseInt($(elem).val());
+        if(!isNaN(currentValue))
+            return currentValue;
+
+        //if it's not a number, it's a checkox -> get checkbox value
+        return $(elem).is(':checked');
+    }).get();
+    return values;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -28,7 +75,6 @@ var somadeprovas = 0;
 var banda = true;
 
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
 })
 
 function calcular3 (x,y,z) {
@@ -74,13 +120,6 @@ div = document.getElementById("modal");
 div.style.display = "block";
 };*/
 
-$(document).ready(function() {
-
-    //Toggle grades' box when respective checkbox is clicked
-    $(".checker").click(function() {
-        $(this).next().toggle();
-    });
-});
 
 function ola() {
 

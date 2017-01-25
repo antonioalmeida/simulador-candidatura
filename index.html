@@ -119,27 +119,27 @@
               <tbody>
                 <tr>
                   <td>Português</td>
-                  <td><input class="grade" min="1" max="20" type="number" id="pt10" name="pt10" value="10"/></td>
-                  <td><input class="grade" min="1" max="20" type="number" id="pt11" name="pt11" value="10"/></td>
-                  <td><input class="grade" min="1" max="20" type="number" id="pt12" name="pt12" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade0[]" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade0[]" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade0[]" value="10"/></td>
 
-                  <td><input type="number" name="examept" id="examept" min="0" max="200" value="100"/></td>
+                  <td><input type="number" id="examept" min="0" max="200" name="exam0[]" value="100"/></td>
 
                   <td>
-                      <input class="checker" type="checkbox">
-                      <input class="grade" type="number" value="100" hidden>
+                      <input class="checker" type="checkbox" name="exam0[]">
+                      <input class="grade" type="number" value="100" name="exam0[]" hidden>
                   </td>
                   <td>
-                      <input class="checker" type="checkbox">
-                      <input class="grade" type="number" value="100" hidden>
+                      <input class="checker" type="checkbox" name="exam0[]">
+                      <input class="grade" type="number" value="100" name="exam0[]" hidden>
                   </td>
                   <td>
-                      <input class="checker" type="checkbox">
-                      <input class="grade" type="number" value="100" hidden>
+                      <input class="checker" type="checkbox" name="exam0[]" >
+                      <input class="grade" type="number" value="100" name="exam0[]" hidden>
                   </td>
                   <td>
-                      <input type="radio" name="provapt" id="provapt" checked/> Sim
-                      <input type="radio" name="provapt" id="provapt"/> Não
+                      <input type="radio" id="provapt" name="access[]" checked/> Sim
+                      <input type="radio" id="provapt" name="access[]"/> Não
                   </td>
 
                 </tr>
@@ -333,7 +333,7 @@
               <br/>
 
               <!--  Large modal  -->
-              <button onclick="ok()" type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">Calcular</button>
+              <button onclick="calculateUnitInternalScore(0)" type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">Calcular</button>
 
             </div>
           </div> <!--  end container -->
