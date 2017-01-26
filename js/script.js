@@ -14,7 +14,89 @@ clipboard.on('error', function(e) {
   console.log(e);
 });
 
-//Facebook Share Link
+
+$(document).ready(function() {
+
+    //Toggle grades' box when respective checkbox is clicked
+    $(".checker").click(function() {
+        $(this).next().toggle();
+    });
+
+    //Same as above but specific for 2nd phase exams
+    $(".checkerPhase2").click(function() {
+        $(this).next().toggle();
+        $(this).next().next().toggle();
+    });
+
+    //Bootstap's tooltip
+    $('[data-toggle="tooltip"]').tooltip();
+
+});
+
+
+//Calculate a unit's CIF (without exams)
+var calculateUnitInternalScore = function(index) {
+    var values = $('input[name^=grade' + index + ']').map(function(idx, elem) {
+        return parseInt($(elem).val());
+    }).get();
+    var sum = values.reduce(function(a,b) {return a+b});
+    return Math.round(sum/values.length);
+}
+
+//Get exams' values (including checkboxes)
+var getUnitExams = function(index) {
+    var values = $('input[name^=exam' + index + ']').map(function(idx, elem) {
+        //if current value is a number (actually, a string that holds a number), return the value (as a number)
+        var currentValue = parseInt($(elem).val());
+        if(!isNaN(currentValue))
+            return currentValue;
+
+        //if it's not a number, it's a checkox -> get checkbox value
+        return $(elem).is(':checked');
+    }).get();
+    return values;
+}
+
+//Calculates all CIFs - returns an array with the results
+var calculateCIFs = function() {
+    var res = [];
+    for(var i = 0; i < 9; i++)
+        res.push(calculateUnitInternalScore(i));
+    return res;
+}
+
+//Calculates all CFDs (First Phase)- returns an array with the results
+var calculateFirstCFDs = function() {
+    var currentExams = [];
+    var res = [];
+    var currentCFD = 0;
+    for(var i = 0; i < 9; i++) {
+        currentExams = getUnitExams(i);
+
+        if(currentExams[0]) { //Exame 1ª Fase
+            currentCFD = Math.round(0.7 * cif[i] + 0.03 * currentExams[1]); //CFD = 70% CIF + 30% Exam
+            res.push(currentCFD);
+            continue;
+        }
+
+        //No exam
+        res.push(cif[i]);
+    }
+    return res;
+}
+
+
+//Array with the units' CIFs (each index corresponds to a unit, according to the order in the table)
+var cif = calculateCIFs();
+
+//Array with the unit's CFDs for the first phase (each index corresponds to a unit, according to the order in the table)
+var cfdFirst = calculateFirstCFDs();
+
+
+
+
+
+
 
 
 
@@ -28,7 +110,6 @@ var somadeprovas = 0;
 var banda = true;
 
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
 })
 
 function calcular3 (x,y,z) {
@@ -68,10 +149,12 @@ function closeDivErro() {
   div = document.getElementById("erro");
   div.style.display = "none";
 };
+
 /*  function showDivModal() {
 div = document.getElementById("modal");
 div.style.display = "block";
 };*/
+
 
 function ola() {
 

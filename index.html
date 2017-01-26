@@ -109,124 +109,263 @@
                   <th>10º Ano</th>
                   <th>11º Ano</th>
                   <th>12º Ano</th>
-                  <th>Exame</th>
+                  <th>Exame 1ª Fase</th>
+                  <th>Exame 2ª Fase</th>
+                  <th>Externo 1ª Fase</th>
+                  <th>Externo 2ª Fase</th>
                   <th>Prova de Ingresso</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Português</td>
-                  <form></form>
-                  <td><input class="nota" min="1" max="20" type="number" id="pt10" name="pt10" value="10"/></td>
-                  <td><input class="nota" min="1" max="20" type="number" id="pt11" name="pt11" value="10"/></td>
-                  <td><input class="nota" min="1" max="20" type="number" id="pt12" name="pt12" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade0[]" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade0[]" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade0[]" value="10"/></td>
 
-                  <form></form>
-                  <td><input type="number" name="examept" id="examept" min="0" max="200" value="100"/></td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam0[]" checked hidden>
+                      <input class="grade" type="number" id="examept" min="0" max="200" name="exam0[]" value="100"/>
+                  </td>
 
-                  <form></form>
-                  <td><input type="radio" name="provapt" id="provapt" checked=""/> Sim  <input type="radio" name="provapt" id="provapt"/> Não</td>
+                  <td>
+                      <input class="checkerPhase2" type="checkbox" name="exam0[]">
+                      <input class="grade" type="number" value="100" name="exam0[]" hidden>
+                      <input type="checkbox" name="exam0[]" hidden>
+                  </td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam0[]">
+                      <input class="grade" type="number" value="100" name="exam0[]" hidden>
+                  </td>
+                  <td>
+                      <input class="checkerPhase2" type="checkbox" name="exam0[]" >
+                      <input class="grade" type="number" value="100" name="exam0[]" hidden>
+                      <input type="checkbox" name="exam0[]" hidden>
+                  </td>
+                  <td>
+                      <input type="radio" name="access0[]" checked/> Sim
+                      <input type="radio" name="access0[]"/> Não
+                  </td>
 
                 </tr>
                 <tr>
                   <td>Filosofia</td>
-                  <form></form>
-                  <td><input class="nota" min="1" max="20" type="number" id="fil10" name="fil10" value="10"/></td>
-                  <td><input class="nota" min="1" max="20" type="number" id="fil11" name="fil11" value="10"/></td>
-                  <td></td>
-                  <td></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade1[]" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade1[]" value="10"/></td>
                   <td></td>
 
+                  <td>
+                      <input class="checker" type="checkbox" name="exam1[]">
+                      <input class="grade" type="number" min="0" max="200" name="exam1[]" value="100" hidden/>
+                  </td>
+
+                  <td>
+                      <input class="checkerPhase2" type="checkbox" name="exam1[]">
+                      <input class="grade" type="number" value="100" name="exam1[]" hidden>
+                      <input type="checkbox" name="exam1[]" hidden>
+                  </td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam1[]">
+                      <input class="grade" type="number" value="100" name="exam1[]" hidden>
+                  </td>
+                  <td>
+                      <input class="checkerPhase2" type="checkbox" name="exam1[]">
+                      <input class="grade" type="number" value="100" name="exam1[]" hidden>
+                      <input type="checkbox" name="exam1[]" hidden>
+                  </td>
+                  <td>
+                      <input type="radio" name="access1[]" checked/> Sim
+                      <input type="radio" name="access1[]"/> Não
+                  </td>
                 </tr>
                 <tr>
-                  <td>Inglês</td>
-                  <form></form>
-                  <td><input class="nota" min="1" max="20" type="number" id="ing10" name="ing10" value="10"/></td>
-                  <td><input class="nota" min="1" max="20" type="number" id="ing11" name="ing11" value="10"/></td>
-                  <td></td>
-                  <td></td>
+                  <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="A disciplina de dois anos de uma língua estrangeira. Exemplos: Inglês, Espanhol, Francês"><sup>(?)</sup></b>Língua Estrangeira</td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade2[]" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade2[]" value="10"/></td>
                   <td></td>
 
+                  <td>
+                      <input class="checker" type="checkbox" name="exam2[]">
+                      <input type="number" min="0" max="200" name="exam2[]" value="100" hidden/>
+                  </td>
+
+                  <td>
+                      <input class="checkerPhase2" type="checkbox" name="exam2[]">
+                      <input class="grade" type="number" value="100" name="exam2[]" hidden>
+                      <input type="checkbox" name="exam2[]" hidden>
+                  </td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam2[]">
+                      <input class="grade" type="number" value="100" name="exam2[]" hidden>
+                  </td>
+                  <td>
+                      <input class="checkerPhase2" type="checkbox" name="exam2[]">
+                      <input class="grade" type="number" value="100" name="exam2[]" hidden>
+                      <input type="checkbox" name="exam2[]" hidden>
+                  </td>
+                  <td>
+                      <input type="radio" name="access2[]" checked/> Sim
+                      <input type="radio" name="access2[]"/> Não
+                  </td>
                 </tr>
                 <tr>
                   <td>Educação Física</td>
-                  <form></form>
-                  <td><input class="nota" min="1" max="20" type="number" id="ef10" name="ef10" value="10"/></td>
-                  <td><input class="nota" min="1" max="20" type="number" id="ef11" name="ef11" value="10"/></td>
-                  <td><input class="nota" min="1" max="20" type="number" id="ef12" name="ef12" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade3[]" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade3[]" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade3[]" value="10"/></td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam3[]" hidden>
+                      <input class="grade" type="number" min="0" max="200" name="exam3[]" value="100" hidden/>
+                  </td>
+                  <td></td>
+                  <td></td>
                   <td></td>
                   <td></td>
 
-                  <form></form>
-
-                  <form></form>
                 </tr>
                 <tr>
                   <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="A disciplina de três anos específica de cada curso. Exemplos: Matemática A, História A, Desenho A"><sup>(?)</sup></b>Trienal Específica</td>
 
-                  <td><input class="nota" min="1" max="20" type="number" id="mat10" name="mat10" value="10"/></td>
-                  <td><input class="nota" min="1" max="20" type="number" id="mat11" name="mat11" value="10"/></td>
-                  <td><input class="nota" min="1" max="20" type="number" id="mat12" name="mat12" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade4[]" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade4[]" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade4[]" value="10"/></td>
 
-                  <form></form>
-                  <td><input type="number" name="examemat" id="examemat" min="0" max="200" value="100"/></td>
+                  <td>
+                       <input class="checker" type="checkbox" name="exam4[]" checked hidden>
+                      <input class="grade" type="number" min="0" max="200" name="exam4[]" value="100"/>
+                  </td>
 
-                  <form></form>
-                  <td><input type="radio" name="provamat" id="provamat" checked=""/> Sim <input type="radio" name="provamat" id="provamat"/> Não</td>
+                  <td>
+                      <input class="checkerPhase2" type="checkbox" name="exam4[]">
+                      <input class="grade" type="number" value="100" name="exam4[]" hidden>
+                      <input type="checkbox" name="exam4[]" hidden>
+                  </td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam4[]">
+                      <input class="grade" type="number" value="100" name="exam4[]" hidden>
+                  </td>
+                  <td>
+                      <input class="checkerPhase2" type="checkbox" name="exam4[]">
+                      <input class="grade" type="number" value="100" name="exam4[]" hidden>
+                      <input type="checkbox" name="exam4[]" hidden>
+                  </td>
+                  <td>
+                      <input type="radio" name="access4[]" checked/> Sim
+                      <input type="radio" name="access4[]"/> Não
+                  </td>
 
                 </tr>
                 <tr>
                   <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="Uma das disciplinas de dois anos específica de cada curso. Exemplos: Físico-Química A, Economia A, Geografia"><sup>(?)</sup></b>Bienal 1</td>
-                  <form></form>
-                  <td><input class="nota" min="1" max="20" type="number" id="fq10" name="fq10" value="10"/></td>
-                  <td><input class="nota" min="1" max="20" type="number" id="fq11" name="fq11" value="10"/></td>
-
+                  <td><input class="grade" min="1" max="20" type="number" name="grade5[]" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade5[]" value="10"/></td>
                   <td></td>
-                  <form></form>
-                  <td><input type="number" name="examefq" id="examefq" min="0" max="200" value="100"/></td>
 
-                  <form></form>
-                  <td><input type="radio" name="provafq" id="provafq" checked=""/> Sim <input type="radio" name="provafq" id="provafq"/> Não</td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam5[]" checked>
+                      <input class="grade" type="number" min="0" max="200" name="exam5[]" value="100"/></td>
 
+                  <td>
+                      <input class="checkerPhase2" type="checkbox" name="exam5[]">
+                      <input class="grade" type="number" value="100" name="exam5[]" hidden>
+                      <input type="checkbox" name="exam5[]" hidden>
+                  </td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam5[]">
+                      <input class="grade" type="number" value="100" name="exam5[]" hidden>
+                  </td>
+                  <td>
+                      <input class="checkerPhase2" type="checkbox" name="exam5[]">
+                      <input class="grade" type="number" value="100" name="exam5[]" hidden>
+                      <input type="checkbox" name="exam5[]" hidden>
+                  </td>
+                  <td>
+                      <input type="radio" name="access5[]" checked/> Sim
+                      <input type="radio" name="access5[]"/> Não
+                  </td>
 
                 </tr>
                 <tr>
                   <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="Uma das disciplinas de dois anos específica de cada curso. Exemplos: Biologia e Geologia, Geometria Descritiva, MACS, Literatura"><sup>(?)</sup></b>Bienal 2</td>
-                  <form></form>
-                  <td><input class="nota" min="1" max="20" type="number" id="geo10" name="geo10" value="10"/></td>
-                  <td><input class="nota" min="1" max="20" type="number" id="geo11" name="geo11" value="10"/></td>
-
+                  <td><input class="grade" min="1" max="20" type="number" name="grade6[]" value="10"/></td>
+                  <td><input class="grade" min="1" max="20" type="number" name="grade6[]" value="10"/></td>
                   <td></td>
-                  <form></form>
-                  <td><input type="number" name="examegeo" id="examegeo" min="0" max="200" value="100"/></td>
 
-                  <form></form>
-                  <td><input type="radio" name="provageo" id="provageo" checked=""/> Sim <input type="radio" name="provageo" id="provageo"/> Não</td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam6[]" checked>
+                      <input class="grade" type="number" min="0" max="200" name="exam6[]" value="100"/></td>
+
+                  <td>
+                      <input class="checkerPhase2" type="checkbox" name="exam6[]">
+                      <input class="grade" type="number" value="100" name="exam6[]" hidden>
+                      <input type="checkbox" name="exam6[]" hidden>
+                  </td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam6[]">
+                      <input class="grade" type="number" value="100" name="exam6[]" hidden>
+                  </td>
+                  <td>
+                      <input class="checkerPhase2" type="checkbox" name="exam6[]">
+                      <input class="grade" type="number" value="100" name="exam6[]" hidden>
+                      <input type="checkbox" name="exam6[]" hidden>
+                  </td>
+                  <td>
+                      <input type="radio" name="access6[]" checked/> Sim
+                      <input type="radio" name="access6[]"/> Não
+                  </td>
 
                 </tr>
                 <tr>
                   <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="Uma das disciplinas de último ano específica de cada curso. Exemplos: Biologia, Física, Aplicações Informáticas B, Psicologia, Sociologia, Geologia"><sup>(?)</sup></b>Opção 1</td>
                   <td></td>
                   <td></td>
-                  <form></form>
-                  <td><input class="nota" min="1" max="20" type="number" id="ai" name="ai12" value="10"/></td>
-                  <td></td>
-                  <td></td>
-
-
-
+                  <td><input class="grade" min="1" max="20" type="number" name="grade7[]" value="10"/></td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam7[]" hidden>
+                      <input class="grade" type="number" min="0" max="200" name="exam7[]" value="100" hidden/>
+                  </td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam7[]" hidden>
+                      <input class="grade" type="number" min="0" max="200" name="exam7[]" value="100" hidden/>
+                  </td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam7[]" hidden>
+                      <input class="grade" type="number" min="0" max="200" name="exam7[]" value="100" hidden/>
+                  </td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam7[]" hidden>
+                      <input class="grade" type="number" min="0" max="200" name="exam7[]" value="100" hidden/>
+                  </td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam7[]" hidden>
+                      <input class="grade" type="number" min="0" max="200" name="exam7[]" value="100" hidden/>
+                  </td>
                 </tr>
                 <tr>
                   <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="A segunda disciplina de último ano específica de cada curso. Exemplos: Biologia, Física, Aplicações Informáticas B, Psicologia, Sociologia, Geologia"><sup>(?)</sup></b>Opção 2</td>
                   <td></td>
                   <td></td>
-                  <form></form>
-                  <td><input class="nota" min="1" max="20" type="number" id="fisi" name="fisi12" value="10"/></td>
-                  <td></td>
-                  <td></td>
-
-
-
+                  <td><input class="grade" min="1" max="20" type="number" name="grade8[]" value="10"/></td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam8[]" hidden>
+                      <input class="grade" type="number" min="0" max="200" name="exam8[]" value="100" hidden/>
+                  </td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam8[]" hidden>
+                      <input class="grade" type="number" min="0" max="200" name="exam8[]" value="100" hidden/>
+                  </td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam8[]" hidden>
+                      <input class="grade" type="number" min="0" max="200" name="exam8[]" value="100" hidden/>
+                  </td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam8[]" hidden>
+                      <input class="grade" type="number" min="0" max="200" name="exam8[]" value="100" hidden/>
+                  </td>
+                  <td>
+                      <input class="checker" type="checkbox" name="exam8[]" hidden>
+                      <input class="grade" type="number" min="0" max="200" name="exam8[]" value="100" hidden/>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -243,7 +382,7 @@
               <br/>
 
               <!--  Large modal  -->
-              <button onclick="ok()" type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">Calcular</button>
+              <button onclick="calculateUnitInternalScore(0)" type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">Calcular</button>
 
             </div>
           </div> <!--  end container -->
@@ -311,7 +450,7 @@
 
 
               <!--  jQuery (necessary for Bootstrap's JavaScript plugins)  -->
-              <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+              <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
 
               <!--  Include all compiled plugins (below), or include individual files as needed  -->
