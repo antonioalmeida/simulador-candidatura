@@ -65,8 +65,17 @@ var calculateCIFs = function() {
     return res;
 }
 
-//Calculates CFD for a given unit
-var calculateCFD = function(index) {
+//Calculates CFD for the unit at 'index'
+var calculateCFD() = function(index) {
+    var currentExams = getUnitExams(index);
+    if(currentExams[0])  //Type1
+        return calculateCFDType1(index);
+    //Type2
+    return calculateCFDType2(index);
+}
+
+//Calculates CFD for the unit at 'index' - Type1 - unit with Exame 1ª Fase Interno checked
+var calculateCFDType1 = function(index) {
     var firstPhase = 0;
     var secondPhase = 0;
     var currentExams = getUnitExams(index);
@@ -120,15 +129,15 @@ var calculateCFD = function(index) {
             }
         }
         else { //Realizou Interno 2ª Fase e Externo 2ª Fase
-            if(currentExams[4] && currentExams[7]) { //Interno 2ª Fase e Externo 2ª Fase são de ano anterior
+            if(currentExams[4] && currentExams[9]) { //Interno 2ª Fase e Externo 2ª Fase são de ano anterior
                 firstPhase = Math.round(Math.max(0.7*internal + 0.3*Math.max(exam1a,exam2a), exam1b, exam2b));
                 secondPhase = firstPhase;
             }
-            if(!currentExams[4] && currentExams[7]) { //Apenas Externo 2ª Fase ano anterior
+            if(!currentExams[4] && currentExams[9]) { //Apenas Externo 2ª Fase ano anterior
                 firstPhase = Math.round(Math.max(0.7*internal + 0.3*exam1a, exam1b, exam2b));
                 secondPhase = Math.round(Math.max(firstPhase, 0.7*internal + 0.3*exam2a));
             }
-            if(currentExams[4] && !currentExams[7]) { //Apenas Interno 2ª Fase ano anterior
+            if(currentExams[4] && !currentExams[9]) { //Apenas Interno 2ª Fase ano anterior
                 firstPhase = Math.round(Math.max(0.7*internal + 0.3*Math.max(exam1a, exam2a, exam1b)));
                 secondPhase = Math.round(Math.max(firstPhase,exam2b));
             }
@@ -140,6 +149,37 @@ var calculateCFD = function(index) {
     }
 
     return [firstPhase,secondPhase];
+}
+
+//Calculates CFD for the unit at 'index' - Type2 - unit with Exame 1ª Fase Interno unchecked
+var calculateCFDType2 = function(index) {
+    var firstPhase = 0;
+    var secondPhase = 0;
+    var currentExams = getUnitExams(index);
+    var internal = calculateUnitInternalScore(index);
+
+    //Normalize exam results (from 1-200 to 1-20)
+    var exam1b = Math.round(currentExams[6]*0.1); //Externo 1ª Fase
+    var exam2b = Math.round(currentExams[8]*0.1); //Externo 2ª Fase
+
+    if(!currentExams[5]) { //Não realizou Externo 1ª Fase
+        firstPhase = internal;
+        secondPhase = firstPhase;
+    }
+    else { //Realizou Externo 1ª Fase
+        if(currentExams[7]) { //Realizou Externo 2ª Fase
+            if(currentExams[9]) { //Externo 2ª Fase ano anterior
+                firstPhase = Math.round(Math.max(internal, exam1b, exam2b));
+                secondPhase = firstPhase;
+            }
+            else {
+                firstPhase = Math.round(Math.max(internal, exam1b));
+                secondPhase = Math.round(Math.max(firstPhase, exam2b));
+            }
+        }
+    }
+
+    return [firstPhase, secondPhase];
 }
 
 
