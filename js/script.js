@@ -66,7 +66,7 @@ var calculateCIFs = function() {
 }
 
 //Calculates CFD for the unit at 'index'
-var calculateCFD() = function(index) {
+var calculateCFD = function(index) {
     var currentExams = getUnitExams(index);
     if(currentExams[0])  //Type1
         return calculateCFDType1(index);
