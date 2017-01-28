@@ -96,8 +96,6 @@
             <ol>
               <li>Introduz as notas das tuas disciplinas, exames e quais as provas de ingresso do curso que te pretendes candidatar.</li>
               <li>Quando tiveres terminado, carrega em <strong>Calcular</strong>.</li>
-              <br/>
-              <p><strong>Nota: </strong>se terminaste o Ensino Secundário até ao ano letivo 2013/2014 (inclusive), deves assinalar a opção <i>"Vou-me candidatar a um curso na área do Desporto"</i>, pois a nota de Educação Física conta independentemente do curso ao qual te candidatas.</p>
             </ol>
 
             <br/>
@@ -377,40 +375,82 @@
 
             <div class="text-center">
               <form>
-                <p><strong>Provas de Ingresso (percentagem %)</strong></p>
-                <input type="number" id="accessPercentage" min="0" max="100" value="50"/>% <br/><br/>
-                <p><b>Vou-me candidatar a um curso na área de Desporto:</b> <input type="checkbox" id="desporto" name="desporto"/></p>
+                <p><strong>Provas de Ingresso (percentagem)</strong></p>
+                <input class="grade" type="number" id="accessPercentage" min="0" max="100" value="50"/> % <br/><br/>
               </form>
               <br/>
 
-              <!--  Large modal  -->
-              <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">Calcular</button>
+              <!-- Button trigger modal -->
+              <button type="button" onclick="displayScores()" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
+                  Calcular
+              </button>
 
             </div>
           </div> <!--  end container -->
 
 
-
           <!-- Results Modal -->
-          <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-            <div class="modal-dialog modal-md">
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div id="erro" style="display: none;">
-                  <div class="alert alert-danger" role="alert">Introduziste valores que não estão dentro dos seus limites, os resultados não são válidos. Verifica os valores e repete o cálculo.</div>
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Resultados</h4>
                 </div>
-                <div class="text-center">
-                  <h1>Resultados:</h1>
-                  <p><strong>Média de Ensino Secundário (<i id="percentagemsec"></i>%): </strong><i id="mediasechtml"></i> pontos</p>
-                  <p><strong>Média das Provas de Ingresso (<i id="provasprint"></i>%): </strong><i id="mediaprovashtml"></i> pontos</p>
-                  <p class="lead"><strong>Nota de Candidatura ao Ensino Superior: </strong><i id="mediaacessohtml"></i> pontos</p>
-                  <button class="btn btn-lg btn-default" onclick="xixi()">Guardar Resultados</button><br/><br/>
-                </div>
-
-
-              </div>
-
-            </div>
-          </div>
+                <div class="modal-body">
+                      <div id="inputError" style="display: none;">
+                          <div class="alert alert-danger" role="alert">Introduziste valores que não estão dentro dos seus limites, os resultados não são válidos. Verifica os valores e repete o cálculo.</div>
+                      </div>
+                      <div class="container">
+                          <p>
+                              <strong>Média das Provas de Ingresso (<span id="accessExamsWeight"></span>%) </strong>
+                              <ul>
+                                  <li><strong>1ª Fase:</strong> <span id="accessScoreFirstPhase"></span> <i>pontos</i></li>
+                                  <li><strong>2ª Fase:</strong> <span id="accessScoreSecondPhase"></span> <i>pontos</i></li>
+                              </ul>
+                          </p>
+                          <h3>Cursos Gerais</h3>
+                          <ul class="no-bullets">
+                              <p>
+                                  <strong>Média de Ensino Secundário (<span class="internalScoreWeight"></span>%) </strong>
+                                  <ul>
+                                      <li><strong>1ª Fase:</strong> <span id="internalScoreFirstPhase"></span> <i>pontos</i></li>
+                                      <li><strong>2ª Fase:</strong> <span id="internalScoreSecondPhase"></span> <i>pontos</i></li>
+                                  </ul>
+                              </p>
+                              <p>
+                                  <strong>Nota de Candidatura ao Ensino Superior</strong>
+                                  <ul>
+                                      <li><strong>1ª Fase:</strong> <span id="finalScoreFirstPhase"></span> <i>pontos</i></li>
+                                      <li><strong>2ª Fase:</strong> <span id="finalScoreSecondPhase"></span> <i>pontos</i></li>
+                                  </ul>
+                              </p>
+                          </ul>
+                          <h3>Área de Desporto</h3>
+                          <ul class="no-bullets">
+                              <p>
+                                  <strong>Média de Ensino Secundário (<span class="internalScoreWeight"></span>%) </strong>
+                                  <ul>
+                                      <li><strong>1ª Fase:</strong> <span id="internalScoreSportFirstPhase"></span> <i>pontos</i></li>
+                                      <li><strong>2ª Fase:</strong> <span id="internalScoreSportSecondPhase"></span> <i>pontos</i></li>
+                                  </ul>
+                              </p>
+                              <p>
+                                  <strong>Nota de Candidatura ao Ensino Superior</strong>
+                                  <ul>
+                                      <li><strong>1ª Fase:</strong> <span id="finalScoreSportFirstPhase"></span> <i>pontos</i></li>
+                                      <li><strong>2ª Fase:</strong> <span id="finalScoreSportSecondPhase"></span> <i>pontos</i></li>
+                                  </ul>
+                              </p>
+                          </ul>
+                      </div>
+                  </div>
+                   <div class="modal-footer">
+                     <button type="button" class="btn btn-default">Guardar Resultados</button>
+                   </div>
+                 </div>
+               </div>
+             </div>
 
 
 
@@ -429,12 +469,9 @@
 
           <footer class="footer text-center">
             <div class="container">
-              <p><br/><br/><a href="http://antonioalmeida.com"><i class="fa fa-code"></i></a>
-                  <p>Powered by <a href="http://getbootstrap.com"><img src="http://getbootstrap.com/apple-touch-icon.png" width="2%" height="2%"/></a></p>
-                  <br/><br/><br/>
-
+                <a href="http://antonioalmeida.me"><i class="fa fa-code"></i> AA</a>
                 </div>
-              </footer></span>
+              </footer>
 
               <!--  Google analytics -->
               <script>

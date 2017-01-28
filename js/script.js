@@ -20,6 +20,7 @@ $(document).ready(function() {
     //Toggle grades' box when respective checkbox is clicked
     $(".checker").click(function() {
         $(this).next().toggle();
+        $(this).next().val('0')
     });
 
     //Same as above but specific for 2nd phase exams
@@ -272,7 +273,7 @@ var calculateFinalScore = function() {
 
     var firstPhase = (accessScores[0] * accessExamsWeight + internalScores[0] * internalScoreWeight).toPrecision(4);
     var secondPhase = (accessScores[1] * accessExamsWeight + internalScores[1] * internalScoreWeight).toPrecision(4);
-    
+
     return [firstPhase, secondPhase];
 }
 
@@ -288,4 +289,39 @@ var calculateFinalScoreSport = function() {
     var secondPhase = (accessScores[1] * accessExamsWeight + internalScores[1] * internalScoreWeight).toPrecision(4);
 
     return [firstPhase, secondPhase];
+}
+
+//Display scores on screen
+var displayScores = function() {
+    var accessExamsWeight = $("#accessPercentage").val();
+    var internalScoreWeight = accessExamsWeight;
+
+    var accessExamsScore = calculateAccessScores();
+
+    var internalScores = calculateInternalScores();
+    var internalScoresSport = calculateInternalScoresSport();
+
+    var finalScore = calculateFinalScore();
+    var finalScoreSport = calculateFinalScoreSport();
+
+    $("#accessExamsWeight").html(accessExamsWeight);
+    $("#accessScoreFirstPhase").html(accessExamsScore[0]);
+    $("#accessScoreSecondPhase").html(accessExamsScore[1]);
+
+    $(".internalScoreWeight").html(internalScoreWeight);
+    $("#internalScoreFirstPhase").html(internalScores[0]);
+    $("#internalScoreSecondPhase").html(internalScores[1]);
+
+    $("#finalScoreFirstPhase").html(finalScore[0]);
+    $("#finalScoreSecondPhase").html(finalScore[1]);
+
+    //Sports
+    $(".internalScoreSportWeight").html(internalScoreWeight);
+    $("#internalScoreSportFirstPhase").html(internalScoresSport[0]);
+    $("#internalScoreSportSecondPhase").html(internalScoresSport[1]);
+
+    $("#finalScoreSportFirstPhase").html(finalScoreSport[0]);
+    $("#finalScoreSportSecondPhase").html(finalScoreSport[1]);
+
+    console.log("Values displayed!");
 }
