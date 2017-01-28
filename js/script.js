@@ -270,9 +270,9 @@ var calculateFinalScore = function() {
     var accessScores = calculateAccessScores();
     var internalScores = calculateInternalScores();
 
-    var firstPhase = accessScores[0] * accessExamsWeight + internalScores[0] * internalScoreWeight;
-    var secondPhase = accessScores[1] * accessExamsWeight + internalScores[1] * internalScoreWeight;
-
+    var firstPhase = (accessScores[0] * accessExamsWeight + internalScores[0] * internalScoreWeight).toPrecision(4);
+    var secondPhase = (accessScores[1] * accessExamsWeight + internalScores[1] * internalScoreWeight).toPrecision(4);
+    
     return [firstPhase, secondPhase];
 }
 
