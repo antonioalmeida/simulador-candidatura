@@ -25,6 +25,7 @@ $(document).ready(function() {
     //Same as above but specific for 2nd phase exams
     $(".checkerPhase2").click(function() {
         $(this).next().toggle();
+        $(this).next().val('0');
         $(this).next().next().toggle();
     });
 
@@ -183,13 +184,111 @@ var calculateCFDType2 = function(index) {
 }
 
 //Calculates all CFDs
-var calculateAllCDF = function() {
+var calculateAllCFDs = function() {
     var res = [];
     for(var i = 0; i < 9; i++)
         res.push(calculateCFD(i));
     return res;
 }
 
+//Get access values (provas de ingresso)
+var getAccessValues = function() {
+    var res = [];
+    var current = "";
+
+    for(var i = 0; i < 7; i++)
+        res.push($('input[name^=access' + i + ']:checked').val());
+    return res;
+}
+
+//Calculate Internal Final Score - First and Second Phase - FOR SPORT COURSES
+var calculateInternalScoresSport = function() {
+    var CFDs = calculateAllCFDs();
+
+    var firstPhase = 0;
+    var secondPhase = 0;
+
+    for(var i = 0; i < 9; i++) {
+        firstPhase += CFDs[i][0];
+        secondPhase += CFDs[i][1];
+    }
+
+    firstPhase = Math.trunc(firstPhase/9)*10;
+    secondPhase = Math.trunc(secondPhase/9)*10;
+
+    return [firstPhase, secondPhase];
+}
+
+//Calculate Internal Final Score - First and Second Phase
+var calculateInternalScores = function() {
+    var CFDs = calculateAllCFDs();
+
+    var firstPhase = 0;
+    var secondPhase = 0;
+
+    for(var i = 0; i < 9; i++) {
+        if(i != 3) { //All but Educação Física
+            firstPhase += CFDs[i][0];
+            secondPhase += CFDs[i][1];
+        }
+    }
+
+    firstPhase = Math.trunc(firstPhase/8*10);
+    secondPhase = Math.trunc(secondPhase/8*10);
+
+    return [firstPhase, secondPhase];
+}
+
+//Calculate access exams score
+var calculateAccessScores = function() {
+    var accessValues = getAccessValues();
+
+    var firstPhase = 0;
+    var secondPhase = 0;
+    var counter = 0;
+
+    for(var i = 0; i < accessValues.length; i++) {
+        var currentExams = getUnitExams(i);
+
+        if(accessValues[i] == 'yes') {
+            counter++;
+            firstPhase += Math.max(currentExams[1], currentExams[6]); //Max First Phase Exam
+            secondPhase += Math.max(currentExams[1], currentExams[6], currentExams[3], currentExams[8]); //Max of all exams
+        }
+    }
+    firstPhase = Math.trunc((firstPhase/counter)*10)/10;
+    secondPhase = Math.trunc((secondPhase/counter)*10)/10;
+
+    return [firstPhase, secondPhase];
+}
+
+//Calculate final score (finally)
+var calculateFinalScore = function() {
+    var accessExamsWeight = $("#accessPercentage").val() / 100;
+    var internalScoreWeight = 1 - accessExamsWeight;
+
+    var accessScores = calculateAccessScores();
+    var internalScores = calculateInternalScores();
+
+    var firstPhase = accessScores[0] * accessExamsWeight + internalScores[0] * internalScoreWeight;
+    var secondPhase = accessScores[1] * accessExamsWeight + internalScores[1] * internalScoreWeight;
+
+    return [firstPhase, secondPhase];
+}
+
+//Calculate final score for SPORT courses
+var calculateFinalScoreSport = function() {
+    var accessExamsWeight = $("#accessPercentage").val() / 100;
+    var internalScoreWeight = 1 - accessExamsWeight;
+
+    var accessScores = calculateAccessScores();
+    var internalScores = calculateInternalScoresSport();
+
+    var firstPhase = (accessScores[0] * accessExamsWeight + internalScores[0] * internalScoreWeight).toPrecision(4);
+    var secondPhase = (accessScores[1] * accessExamsWeight + internalScores[1] * internalScoreWeight).toPrecision(4);
+
+    return [firstPhase, secondPhase];
+}
 
 /*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
 var saveAs=saveAs||function(e){"use strict";if("undefined"==typeof navigator||!/MSIE [1-9]\./.test(navigator.userAgent)){var t=e.document,n=function(){return e.URL||e.webkitURL||e},o=t.createElementNS("http://www.w3.org/1999/xhtml","a"),r="download"in o,i=function(e){var t=new MouseEvent("click");e.dispatchEvent(t)},a=e.webkitRequestFileSystem,c=e.requestFileSystem||a||e.mozRequestFileSystem,u=function(t){(e.setImmediate||e.setTimeout)(function(){throw t},0)},f="application/octet-stream",s=0,d=500,l=function(t){var o=function(){"string"==typeof t?n().revokeObjectURL(t):t.remove()};e.chrome?o():setTimeout(o,d)},v=function(e,t,n){t=[].concat(t);for(var o=t.length;o--;){var r=e["on"+t[o]];if("function"==typeof r)try{r.call(e,n||e)}catch(i){u(i)}}},p=function(e){return/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(e.type)?new Blob(["﻿",e],{type:e.type}):e},w=function(t,u,d){d||(t=p(t));var w,y,m,S=this,h=t.type,O=!1,R=function(){v(S,"writestart progress write writeend".split(" "))},b=function(){if((O||!w)&&(w=n().createObjectURL(t)),y)y.location.href=w;else{var o=e.open(w,"_blank");void 0==o&&"undefined"!=typeof safari&&(e.location.href=w)}S.readyState=S.DONE,R(),l(w)},g=function(e){return function(){return S.readyState!==S.DONE?e.apply(this,arguments):void 0}},E={create:!0,exclusive:!1};return S.readyState=S.INIT,u||(u="download"),r?(w=n().createObjectURL(t),o.href=w,o.download=u,void setTimeout(function(){i(o),R(),l(w),S.readyState=S.DONE})):(e.chrome&&h&&h!==f&&(m=t.slice||t.webkitSlice,t=m.call(t,0,t.size,f),O=!0),a&&"download"!==u&&(u+=".download"),(h===f||a)&&(y=e),c?(s+=t.size,void c(e.TEMPORARY,s,g(function(e){e.root.getDirectory("saved",E,g(function(e){var n=function(){e.getFile(u,E,g(function(e){e.createWriter(g(function(n){n.onwriteend=function(t){y.location.href=e.toURL(),S.readyState=S.DONE,v(S,"writeend",t),l(e)},n.onerror=function(){var e=n.error;e.code!==e.ABORT_ERR&&b()},"writestart progress write abort".split(" ").forEach(function(e){n["on"+e]=S["on"+e]}),n.write(t),S.abort=function(){n.abort(),S.readyState=S.DONE},S.readyState=S.WRITING}),b)}),b)};e.getFile(u,{create:!1},g(function(e){e.remove(),n()}),g(function(e){e.code===e.NOT_FOUND_ERR?n():b()}))}),b)}),b)):void b())},y=w.prototype,m=function(e,t,n){return new w(e,t,n)};return"undefined"!=typeof navigator&&navigator.msSaveOrOpenBlob?function(e,t,n){return n||(e=p(e)),navigator.msSaveOrOpenBlob(e,t||"download")}:(y.abort=function(){var e=this;e.readyState=e.DONE,v(e,"abort")},y.readyState=y.INIT=0,y.WRITING=1,y.DONE=2,y.error=y.onwritestart=y.onprogress=y.onwrite=y.onabort=y.onerror=y.onwriteend=null,m)}}("undefined"!=typeof self&&self||"undefined"!=typeof window&&window||this.content);"undefined"!=typeof module&&module.exports?module.exports.saveAs=saveAs:"undefined"!=typeof define&&null!==define&&null!=define.amd&&define([],function(){return saveAs});

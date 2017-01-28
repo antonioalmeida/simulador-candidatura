@@ -143,8 +143,8 @@
                       <input type="checkbox" name="exam0[]" hidden>
                   </td>
                   <td>
-                      <input type="radio" name="access0[]" checked/> Sim
-                      <input type="radio" name="access0[]"/> Não
+                      <input type="radio" name="access0[]" value="yes" /> Sim
+                      <input type="radio" name="access0[]" value="no" value="no" checked/> Não
                   </td>
 
                 </tr>
@@ -174,8 +174,8 @@
                       <input type="checkbox" name="exam1[]" hidden>
                   </td>
                   <td>
-                      <input type="radio" name="access1[]" checked/> Sim
-                      <input type="radio" name="access1[]"/> Não
+                      <input type="radio" name="access1[]" value="yes" /> Sim
+                      <input type="radio" name="access1[]" value="no" checked/> Não
                   </td>
                 </tr>
                 <tr>
@@ -204,8 +204,8 @@
                       <input type="checkbox" name="exam2[]" hidden>
                   </td>
                   <td>
-                      <input type="radio" name="access2[]" checked/> Sim
-                      <input type="radio" name="access2[]"/> Não
+                      <input type="radio" name="access2[]" value="yes" /> Sim
+                      <input type="radio" name="access2[]" value="no" checked/> Não
                   </td>
                 </tr>
                 <tr>
@@ -250,8 +250,8 @@
                       <input type="checkbox" name="exam4[]" hidden>
                   </td>
                   <td>
-                      <input type="radio" name="access4[]" checked/> Sim
-                      <input type="radio" name="access4[]"/> Não
+                      <input type="radio" name="access4[]" value="yes" checked/> Sim
+                      <input type="radio" name="access4[]" value="no" /> Não
                   </td>
 
                 </tr>
@@ -280,8 +280,8 @@
                       <input type="checkbox" name="exam5[]" hidden>
                   </td>
                   <td>
-                      <input type="radio" name="access5[]" checked/> Sim
-                      <input type="radio" name="access5[]"/> Não
+                      <input type="radio" name="access5[]" value="yes" checked/> Sim
+                      <input type="radio" name="access5[]" value="no" /> Não
                   </td>
 
                 </tr>
@@ -310,8 +310,8 @@
                       <input type="checkbox" name="exam6[]" hidden>
                   </td>
                   <td>
-                      <input type="radio" name="access6[]" checked/> Sim
-                      <input type="radio" name="access6[]"/> Não
+                      <input type="radio" name="access6[]" value="yes" /> Sim
+                      <input type="radio" name="access6[]" value="no" checked/> Não
                   </td>
 
                 </tr>
@@ -340,10 +340,7 @@
                       <input class="grade" type="number" value="100" name="exam7[]" hidden>
                       <input type="checkbox" name="exam7[]" hidden>
                   </td>
-                  <td>
-                      <input type="radio" name="access7[]" checked/> Sim
-                      <input type="radio" name="access7[]"/> Não
-                  </td>
+                  <td></td>
                 </tr>
                 <tr>
                   <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="A segunda disciplina de último ano específica de cada curso. Exemplos: Biologia, Física, Aplicações Informáticas B, Psicologia, Sociologia, Geologia"><sup>(?)</sup></b>Opção 2</td>
@@ -370,10 +367,7 @@
                       <input class="grade" type="number" value="100" name="exam8[]" hidden>
                       <input type="checkbox" name="exam8[]" hidden>
                   </td>
-                  <td>
-                      <input type="radio" name="access8[]" checked/> Sim
-                      <input type="radio" name="access8[]"/> Não
-                  </td>
+                  <td></td>
                 </tr>
               </tbody>
             </table>
@@ -384,13 +378,13 @@
             <div class="text-center">
               <form>
                 <p><strong>Provas de Ingresso (percentagem %)</strong></p>
-                <input type="number" name="provas" id="provas" min="0" max="100" value="50"/>% <br/><br/>
+                <input type="number" id="accessPercentage" min="0" max="100" value="50"/>% <br/><br/>
                 <p><b>Vou-me candidatar a um curso na área de Desporto:</b> <input type="checkbox" id="desporto" name="desporto"/></p>
               </form>
               <br/>
 
               <!--  Large modal  -->
-              <button onclick="calculateUnitInternalScore(0)" type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">Calcular</button>
+              <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">Calcular</button>
 
             </div>
           </div> <!--  end container -->
