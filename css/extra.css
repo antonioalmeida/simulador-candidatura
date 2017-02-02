@@ -4,6 +4,10 @@
   margin: auto;
 }
 
+.adjust-position{
+  margin: 25px auto;
+}
+
 .smaller-table-header{
   font-size: 13px;
   color: black;

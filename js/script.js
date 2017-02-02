@@ -179,6 +179,10 @@ var calculateCFDType2 = function(index) {
                 secondPhase = Math.round(Math.max(firstPhase, exam2b));
             }
         }
+        else{
+          firstPhase = Math.round(Math.max(internal,exam1b));
+          secondPhase = firstPhase;
+        }
     }
 
     return [firstPhase, secondPhase];

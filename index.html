@@ -183,12 +183,12 @@
                   <td></td>
 
                   <td>
-                      <input class="checker" type="checkbox" name="exam2[]">
+                      <input class="checker" type="checkbox" name="exam2[]" hidden>
                       <input type="number" min="0" max="200" name="exam2[]" value="100" hidden/>
                   </td>
 
                   <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam2[]">
+                      <input class="checkerPhase2" type="checkbox" name="exam2[]" hidden>
                       <input class="grade" type="number" value="100" name="exam2[]" hidden>
                       <input type="checkbox" name="exam2[]" hidden>
                   </td>
@@ -368,6 +368,9 @@
               </tbody>
             </table>
 
+
+            <div class="row">
+              <div class="col-xs-6">
             <!-- Table for ingress exams made out of the student's course's context-->
             <table class="table table-striped extra-exams-table">
               <caption class="smaller-table-header"><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="Preenche de acordo com os exames fora do teu plano de estudos para prova de ingresso que REALIZASTE: se não fizeste nenhum, não alteres nada; se fizeste um, apenas preenche uma linha linha, ..."><sup>(?)</sup></b>Provas de ingresso <b><u>fora do plano de estudos</b></u></caption>
@@ -421,24 +424,35 @@
                   </td>
                 </tr>
             </table>
-
+          </div>
 
 
 
             <div class="text-center">
+              <div class="col-xs-6 adjust-position">
+              <table>
+                <tr>
+                  <td>
               <form>
                 <p><strong>Provas de Ingresso (percentagem)</strong></p>
                 <input class="grade" type="number" id="accessPercentage" min="0" max="100" value="50"/> % <br/><br/>
               </form>
               <br/>
-
+                </td>
+              </tr>
+              <tr>
+                <td>
               <!-- Button trigger modal -->
               <button type="button" onclick="displayScores()" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
                   Calcular
               </button>
-
+            </td>
+          </tr>
+              </table>
+              </div>
             </div>
-          </div> <!--  end container -->
+          </div>
+        </div> <!--  end container -->
 
 
           <!-- Results Modal -->
