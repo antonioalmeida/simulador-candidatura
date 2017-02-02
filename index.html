@@ -202,8 +202,6 @@
                       <input type="checkbox" name="exam2[]" hidden>
                   </td>
                   <td>
-                      <input type="radio" name="access2[]" value="yes" /> Sim
-                      <input type="radio" name="access2[]" value="no" checked/> Não
                   </td>
                 </tr>
                 <tr>
@@ -330,11 +328,11 @@
                       <input type="checkbox" name="exam7[]" hidden>
                   </td>
                   <td>
-                      <input class="checker" type="checkbox" name="exam7[]" hidden>
+                      <input class="checker" type="checkbox" name="exam7[]">
                       <input class="grade" type="number" value="100" name="exam7[]" hidden>
                   </td>
                   <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam7[]" hidden>
+                      <input class="checkerPhase2" type="checkbox" name="exam7[]">
                       <input class="grade" type="number" value="100" name="exam7[]" hidden>
                       <input type="checkbox" name="exam7[]" hidden>
                   </td>
@@ -357,11 +355,11 @@
                       <input type="checkbox" name="exam8[]" hidden>
                   </td>
                   <td>
-                      <input class="checker" type="checkbox" name="exam8[]" hidden>
+                      <input class="checker" type="checkbox" name="exam8[]">
                       <input class="grade" type="number" value="100" name="exam8[]" hidden>
                   </td>
                   <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam8[]" hidden>
+                      <input class="checkerPhase2" type="checkbox" name="exam8[]">
                       <input class="grade" type="number" value="100" name="exam8[]" hidden>
                       <input type="checkbox" name="exam8[]" hidden>
                   </td>
@@ -372,15 +370,20 @@
 
             <!-- Table for ingress exams made out of the student's course's context-->
             <table class="table table-striped extra-exams-table">
-              <caption class="smaller-table-header"><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="Preenche de acordo com os exames fora do teu plano de estudos para prova de ingresso que REALIZASTE: se não fizeste nenhum, não alteres nada; se fizeste um, apenas preenche a primeira linha, ..."><sup>(?)</sup></b>Provas de ingresso <b><u>fora do plano de estudos</b></u></caption>
+              <caption class="smaller-table-header"><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="Preenche de acordo com os exames fora do teu plano de estudos para prova de ingresso que REALIZASTE: se não fizeste nenhum, não alteres nada; se fizeste um, apenas preenche uma linha linha, ..."><sup>(?)</sup></b>Provas de ingresso <b><u>fora do plano de estudos</b></u></caption>
               <thead>
                 <tr>
+                  <th>Realizou exame?</th>
                   <th>Exame 1ªFase</th>
                   <th>Exame 2ª Fase</th>
                 </tr>
               </thead>
                 <tr>
                   <td>
+                      <input type="radio" name="access9[]" value="yes"/> Sim
+                      <input type="radio" name="access9[]" value="no" checked/> Não
+                  </td>
+                  <td>
                       <input class = "checker" type="checkbox" name="exam9[]">
                       <input class = "grade" type="number" min="0" max="200" name="exam9[]" hidden></input>
                   </td>
@@ -391,6 +394,10 @@
                 </tr>
                 <tr>
                   <td>
+                      <input type="radio" name="access10[]" value="yes"/> Sim
+                      <input type="radio" name="access10[]" value="no" checked/> Não
+                  </td>
+                  <td>
                       <input class = "checker" type="checkbox" name="exam10[]">
                       <input class = "grade" type="number" min="0" max="200" name="exam10[]" hidden></input>
                   </td>
@@ -400,6 +407,10 @@
                   </td>
                 </tr>
                 <tr>
+                  <td>
+                      <input type="radio" name="access11[]" value="yes"/> Sim
+                      <input type="radio" name="access11[]" value="no" checked/> Não
+                  </td>
                   <td>
                       <input class = "checker" type="checkbox" name="exam11[]">
                       <input class = "grade" type="number" min="0" max="200" name="exam11[]" hidden></input>

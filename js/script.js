@@ -197,7 +197,7 @@ var getAccessValues = function() {
     var res = [];
     var current = "";
 
-    for(var i = 0; i < 7; i++)
+    for(var i = 0; i < 12; i++)
         res.push($('input[name^=access' + i + ']:checked').val());
     return res;
 }
@@ -253,8 +253,14 @@ var calculateAccessScores = function() {
 
         if(accessValues[i] == 'yes') {
             counter++;
-            firstPhase += Math.max(currentExams[1], currentExams[6]); //Max First Phase Exam
-            secondPhase += Math.max(currentExams[1], currentExams[6], currentExams[3], currentExams[8]); //Max of all exams
+            if(i < 9){ //Exams from main table
+              firstPhase += Math.max(currentExams[1], currentExams[6]); //Max First Phase Exam
+              secondPhase += Math.max(currentExams[1], currentExams[6], currentExams[3], currentExams[8]); //Max of all exams
+            }
+            else{ //Exams from second table (extra-exams)
+              firstPhase += currentExams[1]; //First Phase Exam
+              secondPhase += Math.max(currentExams[1], currentExams[3]); //Max of all exams
+            }
         }
     }
     firstPhase = Math.trunc((firstPhase/counter)*10)/10;
