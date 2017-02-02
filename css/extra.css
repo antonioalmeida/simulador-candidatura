@@ -1,3 +1,16 @@
+.extra-exams-table{
+  width: 300px;
+  table-layout: fixed;
+  margin: auto;
+}
+
+.smaller-table-header{
+  font-size: 13px;
+  color: black;
+  text-align: center;
+  /*TODO: Turn text into a pretty thing :D*/
+}
+
 .grade {
     width: 50px;
 }
