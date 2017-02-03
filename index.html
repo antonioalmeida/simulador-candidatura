@@ -1,567 +1,533 @@
 <!DOCTYPE html>
-<!-- Marcação de microdados adicionada pelo Assistente de Marcação para Dados Estruturados Google. -->
 <html lang="pt">
 <head>
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="description" content="Página desenvolvida com o intuito de ajudar alunos de final de secundário no cálculo da nota de entrada com a qual se candidatam ao Ensino Superior, tendo em conta
-  as notas finais das disciplinas e os respetivos exames."/>
-  <!--  The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags  -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Página desenvolvida com o intuito de ajudar alunos de final de secundário no cálculo da nota de entrada com a qual se candidatam ao Ensino Superior, tendo em conta
+    as notas finais das disciplinas e os respetivos exames."/>
+    <!--  The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags  -->
 
-  <!--  Facebook Meta Tags  -->
-  <meta property="og:url" content="http://simulcand.whoisantonio.com"/>
-  <meta property="og:type" content="products"/>
-  <meta property="og:title" content="Simulador Nota de Candidatura ao Ensino Superior"/>
-  <meta property="og:description" content="Página desenvolvida com o intuito de ajudar alunos de final de secundário no cálculo da nota de entrada com a qual se candidatam ao Ensino Superior, tendo em conta as notas finais das disciplinas e os respetivos exames"/>
-  <meta property="og:image" content="banner.png"/>
-  <meta property="og:locale" content="pt_PT"/>
+    <!--  Facebook Meta Tags  -->
+    <meta property="og:url" content="http://antonioalmeida.me/simulador-candidatura"/>
+    <meta property="og:type" content="products"/>
+    <meta property="og:title" content="Simulador Nota de Candidatura ao Ensino Superior"/>
+    <meta property="og:description" content="Página desenvolvida com o intuito de ajudar alunos de final de secundário no cálculo da nota de entrada com a qual se candidatam ao Ensino Superior, tendo em conta as notas finais das disciplinas e os respetivos exames"/>
+    <meta property="og:image" content="banner.png"/>
+    <meta property="og:locale" content="pt_PT"/>
 
-  <!--  Google Android Tab Color  -->
-  <meta name="theme-color" content="#3995F7"/>
+    <!--  Google Android Tab Color  -->
+    <meta name="theme-color" content="#3995F7"/>
 
-  <title>Simulador Nota de Candidatura ao Ensino Superior</title>
+    <title>Simulador Nota de Candidatura ao Ensino Superior</title>
 
-  <!--  Bootstrap & CSS -->
-  <link href="css/bootstrap.css" rel="stylesheet"/>
-  <link href="css/extra.css" rel="stylesheet"/>
-  <link hreflang="pt-pt"/>
-  <link rel="shortcut icon" href="logo.ico"/>
-  <!--  Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"/>
+    <!--  Bootstrap & CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/extra.css" rel="stylesheet"/>
+    <link hreflang="pt-pt"/>
+    <link rel="shortcut icon" href="logo.ico"/>
+    <!--  Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"/>
 
-
-
-  <!--  Facebook SDK -->
-
-
-  <!--  HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries  -->
-  <!--  WARNING: Respond.js doesn't work if you view the page via file://  -->
-  <!-- [if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif] -->
-  <body>
-
-
+    <!--  HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries  -->
+    <!--  WARNING: Respond.js doesn't work if you view the page via file://  -->
+    <!-- [if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif] -->
+</head>
+<body>
 
     <!--  Navbar  -->
     <nav class="navbar navbar-default">
-      <div class="container">
-        <!--  Brand and toggle get grouped for better mobile display  -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="http://simulcand.whoisantonio.com" class="navbar-brand" href"="" "=""><i class="fa fa-calculator" aria-hidden="true"></i> <span>SNCES</span></a>
-        </div>
+        <div class="container">
+            <!--  Brand and toggle get grouped for better mobile display  -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="./index.html" class="navbar-brand" href"="" "=""><i class="fa fa-calculator" aria-hidden="true"></i> <span>SNCES</span></a>
+            </div>
 
 
-        <!--  Collect the nav links, forms, and other content for toggling  -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-square-o" aria-hidden="true"></i> Partilhar <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="https://www.facebook.com/dialog/share?app_id=1197350313623139&display=popup&href=http://simulcand.whoisantonio.com&redirect_uri=http://simulcand.whoisantonio.com"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
-                <li><a href="https://twitter.com/home?status=N%C3%A3o%20sabes%20como%20calcular%20a%20tua%20Nota%20de%20Candidatura%20ao%20Ensino%20Superior?%20Experimenta%20o%20http%3A//simulcand.whoisantonio.com"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
-                <li><a href="https://plus.google.com/share?url=http%3A//simulcand.whoisantonio.com"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Google+</a></li>
-                <li><a href="mailto:?&body=N%C3%A3o%20sabes%20como%20calcular%20a%20tua%20Nota%20de%20Candidatura%20ao%20Ensino%20Superior?%20Experimenta%20o%20http%3A//simulcand.whoisantonio.com"><i class="fa fa-envelope" aria-hidden="true"></i> Email</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="" class="clip"><i class="fa fa-clipboard" aria-hidden="true"></i> Copiar Link</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!--  /.navbar-collapse  -->
-      </div><!--  /.container-fluid  -->
+            <!--  Collect the nav links, forms, and other content for toggling  -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-square-o" aria-hidden="true"></i> Partilhar <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://www.facebook.com/dialog/share?app_id=1197350313623139&display=popup&href=http://simulcand.whoisantonio.com&redirect_uri=http://simulcand.whoisantonio.com"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+                            <li><a href="https://twitter.com/home?status=N%C3%A3o%20sabes%20como%20calcular%20a%20tua%20Nota%20de%20Candidatura%20ao%20Ensino%20Superior?%20Experimenta%20o%20http%3A//simulcand.whoisantonio.com"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+                            <li><a href="https://plus.google.com/share?url=http%3A//simulcand.whoisantonio.com"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Google+</a></li>
+                            <li><a href="mailto:?&body=N%C3%A3o%20sabes%20como%20calcular%20a%20tua%20Nota%20de%20Candidatura%20ao%20Ensino%20Superior?%20Experimenta%20o%20http%3A//simulcand.whoisantonio.com"><i class="fa fa-envelope" aria-hidden="true"></i> Email</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="" class="clip"><i class="fa fa-clipboard" aria-hidden="true"></i> Copiar Link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!--  /.navbar-collapse  -->
+        </div><!--  /.container-fluid  -->
     </nav>
 
 
 
-    <span itemscope itemtype="http://schema.org/SoftwareApplication"><div class="jumbotron">
-      <div class="container">
-        <h1><i class="fa fa-calculator" aria-hidden="true"></i>
-          <span itemprop="name">Simulador Nota de Candidatura ao Ensino Superior</span> <sup><i>BETA</i></sup></h1>
-          <hb>
+    <div class="jumbotron">
+        <div class="container">
+            <h1><i class="fa fa-calculator" aria-hidden="true"></i>
+                Simulador Nota de Candidatura ao Ensino Superior <sup><i>BETA</i></sup>
+            </h1>
             <p>Página desenvolvida com o intuito de ajudar alunos de final de secundário no cálculo da nota de entrada com a qual se candidatam ao Ensino Superior, tendo em conta
-              as notas finais das disciplinas e os respetivos exames.</p>
-            </hb></div>
-          </div>
+                as notas finais das disciplinas e os respetivos exames.
+            </p>
+            </div>
+        </div>
 
-          <div class="container">
+        <div class="container">
             <h2>Como usar?</h2>
             <ol>
-              <li>Introduz as notas das tuas disciplinas, exames e quais as provas de ingresso do curso que te pretendes candidatar.</li>
-              <li>Quando tiveres terminado, carrega em <strong>Calcular</strong>.</li>
+                <li>Introduz as notas das tuas disciplinas, exames e quais as provas de ingresso do curso que te pretendes candidatar.</li>
+                <li>Quando tiveres terminado, carrega em <strong>Calcular</strong>.</li>
             </ol>
 
             <br/>
 
             <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Disciplina</th>
-                  <th>10º Ano</th>
-                  <th>11º Ano</th>
-                  <th>12º Ano</th>
-                  <th>Exame 1ª Fase</th>
-                  <th>Exame 2ª Fase</th>
-                  <th>Externo 1ª Fase</th>
-                  <th>Externo 2ª Fase</th>
-                  <th>Prova de Ingresso</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Português</td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade0[]" value="10"/></td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade0[]" value="10"/></td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade0[]" value="10"/></td>
+                <thead>
+                    <tr>
+                        <th>Disciplina</th>
+                        <th>10º Ano</th>
+                        <th>11º Ano</th>
+                        <th>12º Ano</th>
+                        <th>Exame 1ª Fase</th>
+                        <th>Exame 2ª Fase</th>
+                        <th>Externo 1ª Fase</th>
+                        <th>Externo 2ª Fase</th>
+                        <th>Prova de Ingresso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Português</td>
+                        <td><input class="grade" min="1" max="20" type="number" name="grade0[]" value="10"/></td>
+                        <td><input class="grade" min="1" max="20" type="number" name="grade0[]" value="10"/></td>
+                        <td><input class="grade" min="1" max="20" type="number" name="grade0[]" value="10"/></td>
 
-                  <td>
-                      <input class="checker" type="checkbox" name="exam0[]" checked hidden>
-                      <input class="grade" type="number" id="examept" min="0" max="200" name="exam0[]" value="100"/>
-                  </td>
+                        <td>
+                            <input class="checker" type="checkbox" name="exam0[]" checked hidden>
+                            <input class="grade" type="number" id="examept" min="0" max="200" name="exam0[]" value="100"/>
+                        </td>
 
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam0[]">
-                      <input class="grade" type="number" value="100" name="exam0[]" hidden>
-                      <input type="checkbox" name="exam0[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checker" type="checkbox" name="exam0[]">
-                      <input class="grade" type="number" value="100" name="exam0[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam0[]" >
-                      <input class="grade" type="number" value="100" name="exam0[]" hidden>
-                      <input type="checkbox" name="exam0[]" hidden>
-                  </td>
-                  <td>
-                      <input type="radio" name="access0[]" value="yes" /> Sim
-                      <input type="radio" name="access0[]" value="no" value="no" checked/> Não
-                  </td>
+                        <td>
+                            <input class="checkerPhase2" type="checkbox" name="exam0[]">
+                            <input class="grade" type="number" value="100" name="exam0[]" hidden>
+                            <input type="checkbox" name="exam0[]" hidden>
+                        </td>
+                        <td>
+                            <input class="checker" type="checkbox" name="exam0[]">
+                            <input class="grade" type="number" value="100" name="exam0[]" hidden>
+                        </td>
+                        <td>
+                            <input class="checkerPhase2" type="checkbox" name="exam0[]" >
+                            <input class="grade" type="number" value="100" name="exam0[]" hidden>
+                            <input type="checkbox" name="exam0[]" hidden>
+                        </td>
+                        <td>
+                            <input type="radio" name="access0[]" value="yes" /> Sim
+                            <input type="radio" name="access0[]" value="no" value="no" checked/> Não
+                        </td>
 
-                </tr>
-                <tr>
-                  <td>Filosofia</td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade1[]" value="10"/></td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade1[]" value="10"/></td>
-                  <td></td>
+                    </tr>
+                    <tr>
+                        <td>Filosofia</td>
+                        <td><input class="grade" min="1" max="20" type="number" name="grade1[]" value="10"/></td>
+                        <td><input class="grade" min="1" max="20" type="number" name="grade1[]" value="10"/></td>
+                        <td></td>
 
-                  <td>
-                      <input class="checker" type="checkbox" name="exam1[]">
-                      <input class="grade" type="number" min="0" max="200" name="exam1[]" value="100" hidden/>
-                  </td>
+                        <td>
+                            <input class="checker" type="checkbox" name="exam1[]">
+                            <input class="grade" type="number" min="0" max="200" name="exam1[]" value="100" hidden/>
+                        </td>
 
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam1[]">
-                      <input class="grade" type="number" value="100" name="exam1[]" hidden>
-                      <input type="checkbox" name="exam1[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checker" type="checkbox" name="exam1[]">
-                      <input class="grade" type="number" value="100" name="exam1[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam1[]">
-                      <input class="grade" type="number" value="100" name="exam1[]" hidden>
-                      <input type="checkbox" name="exam1[]" hidden>
-                  </td>
-                  <td>
-                      <input type="radio" name="access1[]" value="yes" /> Sim
-                      <input type="radio" name="access1[]" value="no" checked/> Não
-                  </td>
-                </tr>
-                <tr>
-                  <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="A disciplina de dois anos de uma língua estrangeira. Exemplos: Inglês, Espanhol, Francês"><sup>(?)</sup></b>Língua Estrangeira</td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade2[]" value="10"/></td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade2[]" value="10"/></td>
-                  <td></td>
+                        <td>
+                            <input class="checkerPhase2" type="checkbox" name="exam1[]">
+                            <input class="grade" type="number" value="100" name="exam1[]" hidden>
+                            <input type="checkbox" name="exam1[]" hidden>
+                        </td>
+                        <td>
+                            <input class="checker" type="checkbox" name="exam1[]">
+                            <input class="grade" type="number" value="100" name="exam1[]" hidden>
+                        </td>
+                        <td>
+                            <input class="checkerPhase2" type="checkbox" name="exam1[]">
+                            <input class="grade" type="number" value="100" name="exam1[]" hidden>
+                            <input type="checkbox" name="exam1[]" hidden>
+                        </td>
+                        <td>
+                            <input type="radio" name="access1[]" value="yes" /> Sim
+                            <input type="radio" name="access1[]" value="no" checked/> Não
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="A disciplina de dois anos de uma língua estrangeira. Exemplos: Inglês, Espanhol, Francês"><sup>(?)</sup></b>Língua Estrangeira</td>
+                        <td><input class="grade" min="1" max="20" type="number" name="grade2[]" value="10"/></td>
+                        <td><input class="grade" min="1" max="20" type="number" name="grade2[]" value="10"/></td>
+                        <td></td>
 
-                  <td>
-                      <input class="checker" type="checkbox" name="exam2[]" hidden>
-                      <input type="number" min="0" max="200" name="exam2[]" value="100" hidden/>
-                  </td>
+                        <td>
+                            <input class="checker" type="checkbox" name="exam2[]" hidden>
+                            <input type="number" min="0" max="200" name="exam2[]" value="100" hidden/>
+                        </td>
 
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam2[]" hidden>
-                      <input class="grade" type="number" value="100" name="exam2[]" hidden>
-                      <input type="checkbox" name="exam2[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checker" type="checkbox" name="exam2[]">
-                      <input class="grade" type="number" value="100" name="exam2[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam2[]">
-                      <input class="grade" type="number" value="100" name="exam2[]" hidden>
-                      <input type="checkbox" name="exam2[]" hidden>
-                  </td>
-                  <td>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Educação Física</td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade3[]" value="10"/></td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade3[]" value="10"/></td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade3[]" value="10"/></td>
-                  <td>
-                      <input class="checker" type="checkbox" name="exam3[]" hidden>
-                      <input class="grade" type="number" min="0" max="200" name="exam3[]" value="100" hidden/>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                        <td>
+                            <input class="checkerPhase2" type="checkbox" name="exam2[]" hidden>
+                            <input class="grade" type="number" value="100" name="exam2[]" hidden>
+                            <input type="checkbox" name="exam2[]" hidden>
+                        </td>
+                        <td>
+                            <input class="checker" type="checkbox" name="exam2[]">
+                            <input class="grade" type="number" value="100" name="exam2[]" hidden>
+                        </td>
+                        <td>
+                            <input class="checkerPhase2" type="checkbox" name="exam2[]">
+                            <input class="grade" type="number" value="100" name="exam2[]" hidden>
+                            <input type="checkbox" name="exam2[]" hidden>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Educação Física</td>
+                        <td><input class="grade" min="1" max="20" type="number" name="grade3[]" value="10"/></td>
+                        <td><input class="grade" min="1" max="20" type="number" name="grade3[]" value="10"/></td>
+                        <td><input class="grade" min="1" max="20" type="number" name="grade3[]" value="10"/></td>
+                        <td>
+                            <input class="checker" type="checkbox" name="exam3[]" hidden>
+                            <input class="grade" type="number" min="0" max="200" name="exam3[]" value="100" hidden/>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
-                </tr>
-                <tr>
-                  <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="A disciplina de três anos específica de cada curso. Exemplos: Matemática A, História A, Desenho A"><sup>(?)</sup></b>Trienal Específica</td>
+                    </tr>
+                    <tr>
+                        <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="A disciplina de três anos específica de cada curso. Exemplos: Matemática A, História A, Desenho A"><sup>(?)</sup></b>Trienal Específica</td>
 
-                  <td><input class="grade" min="1" max="20" type="number" name="grade4[]" value="10"/></td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade4[]" value="10"/></td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade4[]" value="10"/></td>
+                        <td><input class="grade" min="1" max="20" type="number" name="grade4[]" value="10"/></td>
+                        <td><input class="grade" min="1" max="20" type="number" name="grade4[]" value="10"/></td>
+                        <td><input class="grade" min="1" max="20" type="number" name="grade4[]" value="10"/></td>
 
-                  <td>
-                       <input class="checker" type="checkbox" name="exam4[]" checked hidden>
-                      <input class="grade" type="number" min="0" max="200" name="exam4[]" value="100"/>
-                  </td>
+                        <td>
+                            <input class="checker" type="checkbox" name="exam4[]" checked hidden>
+                            <input class="grade" type="number" min="0" max="200" name="exam4[]" value="100"/>
+                        </td>
 
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam4[]">
-                      <input class="grade" type="number" value="100" name="exam4[]" hidden>
-                      <input type="checkbox" name="exam4[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checker" type="checkbox" name="exam4[]">
-                      <input class="grade" type="number" value="100" name="exam4[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam4[]">
-                      <input class="grade" type="number" value="100" name="exam4[]" hidden>
-                      <input type="checkbox" name="exam4[]" hidden>
-                  </td>
-                  <td>
-                      <input type="radio" name="access4[]" value="yes" checked/> Sim
-                      <input type="radio" name="access4[]" value="no" /> Não
-                  </td>
+                        <td>
+                            <input class="checkerPhase2" type="checkbox" name="exam4[]">
+                            <input class="grade" type="number" value="100" name="exam4[]" hidden>
+                            <input type="checkbox" name="exam4[]" hidden>
+                        </td>
+                        <td>
+                            <input class="checker" type="checkbox" name="exam4[]">
+                            <input class="grade" type="number" value="100" name="exam4[]" hidden>
+                        </td>
+                        <td>
+                            <input class="checkerPhase2" type="checkbox" name="exam4[]">
+                            <input class="grade" type="number" value="100" name="exam4[]" hidden>
+                            <input type="checkbox" name="exam4[]" hidden>
+                        </td>
+                        <td>
+                            <input type="radio" name="access4[]" value="yes" checked/> Sim
+                            <input type="radio" name="access4[]" value="no" /> Não
+                        </td>
 
-                </tr>
-                <tr>
-                  <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="Uma das disciplinas de dois anos específica de cada curso. Exemplos: Físico-Química A, Economia A, Geografia"><sup>(?)</sup></b>Bienal 1</td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade5[]" value="10"/></td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade5[]" value="10"/></td>
-                  <td></td>
+                    </tr>
+                    <tr>
+                        <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="Uma das disciplinas de dois anos específica de cada curso. Exemplos: Físico-Química A, Economia A, Geografia"><sup>(?)</sup></b>Bienal 1</td>
+                        <td><input class="grade" min="1" max="20" type="number" name="grade5[]" value="10"/></td>
+                        <td><input class="grade" min="1" max="20" type="number" name="grade5[]" value="10"/></td>
+                        <td></td>
 
-                  <td>
-                      <input class="checker" type="checkbox" name="exam5[]" checked>
-                      <input class="grade" type="number" min="0" max="200" name="exam5[]" value="100"/></td>
+                        <td>
+                            <input class="checker" type="checkbox" name="exam5[]" checked>
+                            <input class="grade" type="number" min="0" max="200" name="exam5[]" value="100"/></td>
 
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam5[]">
-                      <input class="grade" type="number" value="100" name="exam5[]" hidden>
-                      <input type="checkbox" name="exam5[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checker" type="checkbox" name="exam5[]">
-                      <input class="grade" type="number" value="100" name="exam5[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam5[]">
-                      <input class="grade" type="number" value="100" name="exam5[]" hidden>
-                      <input type="checkbox" name="exam5[]" hidden>
-                  </td>
-                  <td>
-                      <input type="radio" name="access5[]" value="yes" checked/> Sim
-                      <input type="radio" name="access5[]" value="no" /> Não
-                  </td>
+                            <td>
+                                <input class="checkerPhase2" type="checkbox" name="exam5[]">
+                                <input class="grade" type="number" value="100" name="exam5[]" hidden>
+                                <input type="checkbox" name="exam5[]" hidden>
+                            </td>
+                            <td>
+                                <input class="checker" type="checkbox" name="exam5[]">
+                                <input class="grade" type="number" value="100" name="exam5[]" hidden>
+                            </td>
+                            <td>
+                                <input class="checkerPhase2" type="checkbox" name="exam5[]">
+                                <input class="grade" type="number" value="100" name="exam5[]" hidden>
+                                <input type="checkbox" name="exam5[]" hidden>
+                            </td>
+                            <td>
+                                <input type="radio" name="access5[]" value="yes" checked/> Sim
+                                <input type="radio" name="access5[]" value="no" /> Não
+                            </td>
 
-                </tr>
-                <tr>
-                  <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="Uma das disciplinas de dois anos específica de cada curso. Exemplos: Biologia e Geologia, Geometria Descritiva, MACS, Literatura"><sup>(?)</sup></b>Bienal 2</td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade6[]" value="10"/></td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade6[]" value="10"/></td>
-                  <td></td>
+                        </tr>
+                        <tr>
+                            <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="Uma das disciplinas de dois anos específica de cada curso. Exemplos: Biologia e Geologia, Geometria Descritiva, MACS, Literatura"><sup>(?)</sup></b>Bienal 2</td>
+                            <td><input class="grade" min="1" max="20" type="number" name="grade6[]" value="10"/></td>
+                            <td><input class="grade" min="1" max="20" type="number" name="grade6[]" value="10"/></td>
+                            <td></td>
 
-                  <td>
-                      <input class="checker" type="checkbox" name="exam6[]" checked>
-                      <input class="grade" type="number" min="0" max="200" name="exam6[]" value="100"/></td>
+                            <td>
+                                <input class="checker" type="checkbox" name="exam6[]" checked>
+                                <input class="grade" type="number" min="0" max="200" name="exam6[]" value="100"/></td>
 
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam6[]">
-                      <input class="grade" type="number" value="100" name="exam6[]" hidden>
-                      <input type="checkbox" name="exam6[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checker" type="checkbox" name="exam6[]">
-                      <input class="grade" type="number" value="100" name="exam6[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam6[]">
-                      <input class="grade" type="number" value="100" name="exam6[]" hidden>
-                      <input type="checkbox" name="exam6[]" hidden>
-                  </td>
-                  <td>
-                      <input type="radio" name="access6[]" value="yes" /> Sim
-                      <input type="radio" name="access6[]" value="no" checked/> Não
-                  </td>
+                                <td>
+                                    <input class="checkerPhase2" type="checkbox" name="exam6[]">
+                                    <input class="grade" type="number" value="100" name="exam6[]" hidden>
+                                    <input type="checkbox" name="exam6[]" hidden>
+                                </td>
+                                <td>
+                                    <input class="checker" type="checkbox" name="exam6[]">
+                                    <input class="grade" type="number" value="100" name="exam6[]" hidden>
+                                </td>
+                                <td>
+                                    <input class="checkerPhase2" type="checkbox" name="exam6[]">
+                                    <input class="grade" type="number" value="100" name="exam6[]" hidden>
+                                    <input type="checkbox" name="exam6[]" hidden>
+                                </td>
+                                <td>
+                                    <input type="radio" name="access6[]" value="yes" /> Sim
+                                    <input type="radio" name="access6[]" value="no" checked/> Não
+                                </td>
 
-                </tr>
-                <tr>
-                  <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="Uma das disciplinas de último ano específica de cada curso. Exemplos: Biologia, Física, Aplicações Informáticas B, Psicologia, Sociologia, Geologia"><sup>(?)</sup></b>Opção 1</td>
-                  <td></td>
-                  <td></td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade7[]" value="10"/></td>
+                            </tr>
+                            <tr>
+                                <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="Uma das disciplinas de último ano específica de cada curso. Exemplos: Biologia, Física, Aplicações Informáticas B, Psicologia, Sociologia, Geologia"><sup>(?)</sup></b>Opção 1</td>
+                                <td></td>
+                                <td></td>
+                                <td><input class="grade" min="1" max="20" type="number" name="grade7[]" value="10"/></td>
 
-                  <td>
-                      <input class="checker" type="checkbox" name="exam7[]" hidden>
-                      <input class="grade" type="number" min="0" max="200" name="exam7[]" value="100" hidden/>
-                  </td>
+                                <td>
+                                    <input class="checker" type="checkbox" name="exam7[]" hidden>
+                                    <input class="grade" type="number" min="0" max="200" name="exam7[]" value="100" hidden/>
+                                </td>
 
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam7[]" hidden>
-                      <input class="grade" type="number" value="100" name="exam7[]" hidden>
-                      <input type="checkbox" name="exam7[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checker" type="checkbox" name="exam7[]">
-                      <input class="grade" type="number" value="100" name="exam7[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam7[]">
-                      <input class="grade" type="number" value="100" name="exam7[]" hidden>
-                      <input type="checkbox" name="exam7[]" hidden>
-                  </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="A segunda disciplina de último ano específica de cada curso. Exemplos: Biologia, Física, Aplicações Informáticas B, Psicologia, Sociologia, Geologia"><sup>(?)</sup></b>Opção 2</td>
-                  <td></td>
-                  <td></td>
-                  <td><input class="grade" min="1" max="20" type="number" name="grade8[]" value="10"/></td>
+                                <td>
+                                    <input class="checkerPhase2" type="checkbox" name="exam7[]" hidden>
+                                    <input class="grade" type="number" value="100" name="exam7[]" hidden>
+                                    <input type="checkbox" name="exam7[]" hidden>
+                                </td>
+                                <td>
+                                    <input class="checker" type="checkbox" name="exam7[]">
+                                    <input class="grade" type="number" value="100" name="exam7[]" hidden>
+                                </td>
+                                <td>
+                                    <input class="checkerPhase2" type="checkbox" name="exam7[]">
+                                    <input class="grade" type="number" value="100" name="exam7[]" hidden>
+                                    <input type="checkbox" name="exam7[]" hidden>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="A segunda disciplina de último ano específica de cada curso. Exemplos: Biologia, Física, Aplicações Informáticas B, Psicologia, Sociologia, Geologia"><sup>(?)</sup></b>Opção 2</td>
+                                <td></td>
+                                <td></td>
+                                <td><input class="grade" min="1" max="20" type="number" name="grade8[]" value="10"/></td>
 
-                  <td>
-                      <input class="checker" type="checkbox" name="exam8[]" hidden>
-                      <input class="grade" type="number" min="0" max="200" name="exam8[]" value="100" hidden/>
-                  </td>
+                                <td>
+                                    <input class="checker" type="checkbox" name="exam8[]" hidden>
+                                    <input class="grade" type="number" min="0" max="200" name="exam8[]" value="100" hidden/>
+                                </td>
 
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam8[]" hidden>
-                      <input class="grade" type="number" value="100" name="exam8[]" hidden>
-                      <input type="checkbox" name="exam8[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checker" type="checkbox" name="exam8[]">
-                      <input class="grade" type="number" value="100" name="exam8[]" hidden>
-                  </td>
-                  <td>
-                      <input class="checkerPhase2" type="checkbox" name="exam8[]">
-                      <input class="grade" type="number" value="100" name="exam8[]" hidden>
-                      <input type="checkbox" name="exam8[]" hidden>
-                  </td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-
-
-            <div class="row">
-              <div class="col-xs-6">
-            <!-- Table for ingress exams made out of the student's course's context-->
-            <table class="table table-striped extra-exams-table">
-              <caption class="smaller-table-header"><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="Preenche de acordo com os exames fora do teu plano de estudos para prova de ingresso que REALIZASTE: se não fizeste nenhum, não alteres nada; se fizeste um, apenas preenche uma linha linha, ..."><sup>(?)</sup></b>Provas de ingresso <b><u>fora do plano de estudos</b></u></caption>
-              <thead>
-                <tr>
-                  <th>Realizou exame?</th>
-                  <th>Exame 1ªFase</th>
-                  <th>Exame 2ª Fase</th>
-                </tr>
-              </thead>
-                <tr>
-                  <td>
-                      <input type="radio" name="access9[]" value="yes"/> Sim
-                      <input type="radio" name="access9[]" value="no" checked/> Não
-                  </td>
-                  <td>
-                      <input class = "checker" type="checkbox" name="exam9[]">
-                      <input class = "grade" type="number" min="0" max="200" name="exam9[]" hidden></input>
-                  </td>
-                  <td>
-                      <input class = "checker" type="checkbox" name="exam9[]">
-                      <input class = "grade" type="number" min="0" max="200" name="exam9[]" hidden></input>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                      <input type="radio" name="access10[]" value="yes"/> Sim
-                      <input type="radio" name="access10[]" value="no" checked/> Não
-                  </td>
-                  <td>
-                      <input class = "checker" type="checkbox" name="exam10[]">
-                      <input class = "grade" type="number" min="0" max="200" name="exam10[]" hidden></input>
-                  </td>
-                  <td>
-                      <input class = "checker" type="checkbox" name="exam10[]">
-                      <input class = "grade" type="number" min="0" max="200" name="exam10[]" hidden></input>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                      <input type="radio" name="access11[]" value="yes"/> Sim
-                      <input type="radio" name="access11[]" value="no" checked/> Não
-                  </td>
-                  <td>
-                      <input class = "checker" type="checkbox" name="exam11[]">
-                      <input class = "grade" type="number" min="0" max="200" name="exam11[]" hidden></input>
-                  </td>
-                  <td>
-                      <input class = "checker" type="checkbox" name="exam11[]">
-                      <input class = "grade" type="number" min="0" max="200" name="exam11[]" hidden></input>
-                  </td>
-                </tr>
-            </table>
-          </div>
+                                <td>
+                                    <input class="checkerPhase2" type="checkbox" name="exam8[]" hidden>
+                                    <input class="grade" type="number" value="100" name="exam8[]" hidden>
+                                    <input type="checkbox" name="exam8[]" hidden>
+                                </td>
+                                <td>
+                                    <input class="checker" type="checkbox" name="exam8[]">
+                                    <input class="grade" type="number" value="100" name="exam8[]" hidden>
+                                </td>
+                                <td>
+                                    <input class="checkerPhase2" type="checkbox" name="exam8[]">
+                                    <input class="grade" type="number" value="100" name="exam8[]" hidden>
+                                    <input type="checkbox" name="exam8[]" hidden>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
 
 
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <!-- Table for ingress exams made out of the student's course's context-->
+                            <h5><b href="#" data-placement="right" data-toggle="tooltip" title="" data-original-title="Preenche de acordo com os exames fora do teu plano de estudos para prova de ingresso que realizaste. Exemplos: se não fizeste nenhum, não alteres nada; se fizeste um, altera uma linha."><sup>(?)</sup></b> Provas de ingresso <u>fora do plano de estudos</u></h5>
 
-            <div class="text-center">
-              <div class="col-xs-6 adjust-position">
-              <table>
-                <tr>
-                  <td>
-              <form>
-                <p><strong>Provas de Ingresso (percentagem)</strong></p>
-                <input class="grade" type="number" id="accessPercentage" min="0" max="100" value="50"/> % <br/><br/>
-              </form>
-              <br/>
-                </td>
-              </tr>
-              <tr>
-                <td>
-              <!-- Button trigger modal -->
-              <button type="button" onclick="displayScores()" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
-                  Calcular
-              </button>
-            </td>
-          </tr>
-              </table>
-              </div>
-            </div>
-          </div>
-        </div> <!--  end container -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Realizou exame?</th>
+                                        <th>Exame 1ªFase</th>
+                                        <th>Exame 2ª Fase</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="access9[]" value="yes"/> Sim
+                                        <input type="radio" name="access9[]" value="no" checked/> Não
+                                    </td>
+                                    <td>
+                                        <input class = "checker" type="checkbox" name="exam9[]">
+                                        <input class = "grade" type="number" min="0" max="200" name="exam9[]" hidden></input>
+                                    </td>
+                                    <td>
+                                        <input class = "checker" type="checkbox" name="exam9[]">
+                                        <input class = "grade" type="number" min="0" max="200" name="exam9[]" hidden></input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="access10[]" value="yes"/> Sim
+                                        <input type="radio" name="access10[]" value="no" checked/> Não
+                                    </td>
+                                    <td>
+                                        <input class = "checker" type="checkbox" name="exam10[]">
+                                        <input class = "grade" type="number" min="0" max="200" name="exam10[]" hidden></input>
+                                    </td>
+                                    <td>
+                                        <input class = "checker" type="checkbox" name="exam10[]">
+                                        <input class = "grade" type="number" min="0" max="200" name="exam10[]" hidden></input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="access11[]" value="yes"/> Sim
+                                        <input type="radio" name="access11[]" value="no" checked/> Não
+                                    </td>
+                                    <td>
+                                        <input class = "checker" type="checkbox" name="exam11[]">
+                                        <input class = "grade" type="number" min="0" max="200" name="exam11[]" hidden></input>
+                                    </td>
+                                    <td>
+                                        <input class = "checker" type="checkbox" name="exam11[]">
+                                        <input class = "grade" type="number" min="0" max="200" name="exam11[]" hidden></input>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 text-center" id="calculate">
+                                <h5><strong>Provas de Ingresso (percentagem)</strong></h5>
+                                <input class="grade" type="number" id="accessPercentage" min="0" max="100" value="50"/> % <br/>
+                            <br/>
+                            <!-- Button trigger modal -->
+                            <button type="button" onclick="displayScores()" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
+                                Calcular
+                            </button>
+                        </div>
+                    </div>
+                </div> <!--  end container -->
 
 
-          <!-- Results Modal -->
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Resultados</h4>
+                <!-- Results Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Resultados</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div id="inputError" style="display: none;">
+                                    <div class="alert alert-danger" role="alert">Introduziste valores que não estão dentro dos seus limites, os resultados não são válidos. Verifica os valores e repete o cálculo.</div>
+                                </div>
+                                <div class="container">
+                                    <p>
+                                        <strong>Média das Provas de Ingresso (<span id="accessExamsWeight"></span>%) </strong>
+                                        <ul>
+                                            <li><strong>1ª Fase:</strong> <span id="accessScoreFirstPhase"></span> <i>pontos</i></li>
+                                            <li><strong>2ª Fase:</strong> <span id="accessScoreSecondPhase"></span> <i>pontos</i></li>
+                                        </ul>
+                                    </p>
+                                    <h3>Cursos Gerais</h3>
+                                    <ul class="no-bullets">
+                                        <p>
+                                            <strong>Média de Ensino Secundário (<span class="internalScoreWeight"></span>%) </strong>
+                                            <ul>
+                                                <li><strong>1ª Fase:</strong> <span id="internalScoreFirstPhase"></span> <i>pontos</i></li>
+                                                <li><strong>2ª Fase:</strong> <span id="internalScoreSecondPhase"></span> <i>pontos</i></li>
+                                            </ul>
+                                        </p>
+                                        <p>
+                                            <strong>Nota de Candidatura ao Ensino Superior</strong>
+                                            <ul>
+                                                <li><strong>1ª Fase:</strong> <span id="finalScoreFirstPhase"></span> <i>pontos</i></li>
+                                                <li><strong>2ª Fase:</strong> <span id="finalScoreSecondPhase"></span> <i>pontos</i></li>
+                                            </ul>
+                                        </p>
+                                    </ul>
+                                    <h3>Área de Desporto</h3>
+                                    <ul class="no-bullets">
+                                        <p>
+                                            <strong>Média de Ensino Secundário (<span class="internalScoreWeight"></span>%) </strong>
+                                            <ul>
+                                                <li><strong>1ª Fase:</strong> <span id="internalScoreSportFirstPhase"></span> <i>pontos</i></li>
+                                                <li><strong>2ª Fase:</strong> <span id="internalScoreSportSecondPhase"></span> <i>pontos</i></li>
+                                            </ul>
+                                        </p>
+                                        <p>
+                                            <strong>Nota de Candidatura ao Ensino Superior</strong>
+                                            <ul>
+                                                <li><strong>1ª Fase:</strong> <span id="finalScoreSportFirstPhase"></span> <i>pontos</i></li>
+                                                <li><strong>2ª Fase:</strong> <span id="finalScoreSportSecondPhase"></span> <i>pontos</i></li>
+                                            </ul>
+                                        </p>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default">Guardar Resultados</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                      <div id="inputError" style="display: none;">
-                          <div class="alert alert-danger" role="alert">Introduziste valores que não estão dentro dos seus limites, os resultados não são válidos. Verifica os valores e repete o cálculo.</div>
-                      </div>
-                      <div class="container">
-                          <p>
-                              <strong>Média das Provas de Ingresso (<span id="accessExamsWeight"></span>%) </strong>
-                              <ul>
-                                  <li><strong>1ª Fase:</strong> <span id="accessScoreFirstPhase"></span> <i>pontos</i></li>
-                                  <li><strong>2ª Fase:</strong> <span id="accessScoreSecondPhase"></span> <i>pontos</i></li>
-                              </ul>
-                          </p>
-                          <h3>Cursos Gerais</h3>
-                          <ul class="no-bullets">
-                              <p>
-                                  <strong>Média de Ensino Secundário (<span class="internalScoreWeight"></span>%) </strong>
-                                  <ul>
-                                      <li><strong>1ª Fase:</strong> <span id="internalScoreFirstPhase"></span> <i>pontos</i></li>
-                                      <li><strong>2ª Fase:</strong> <span id="internalScoreSecondPhase"></span> <i>pontos</i></li>
-                                  </ul>
-                              </p>
-                              <p>
-                                  <strong>Nota de Candidatura ao Ensino Superior</strong>
-                                  <ul>
-                                      <li><strong>1ª Fase:</strong> <span id="finalScoreFirstPhase"></span> <i>pontos</i></li>
-                                      <li><strong>2ª Fase:</strong> <span id="finalScoreSecondPhase"></span> <i>pontos</i></li>
-                                  </ul>
-                              </p>
-                          </ul>
-                          <h3>Área de Desporto</h3>
-                          <ul class="no-bullets">
-                              <p>
-                                  <strong>Média de Ensino Secundário (<span class="internalScoreWeight"></span>%) </strong>
-                                  <ul>
-                                      <li><strong>1ª Fase:</strong> <span id="internalScoreSportFirstPhase"></span> <i>pontos</i></li>
-                                      <li><strong>2ª Fase:</strong> <span id="internalScoreSportSecondPhase"></span> <i>pontos</i></li>
-                                  </ul>
-                              </p>
-                              <p>
-                                  <strong>Nota de Candidatura ao Ensino Superior</strong>
-                                  <ul>
-                                      <li><strong>1ª Fase:</strong> <span id="finalScoreSportFirstPhase"></span> <i>pontos</i></li>
-                                      <li><strong>2ª Fase:</strong> <span id="finalScoreSportSecondPhase"></span> <i>pontos</i></li>
-                                  </ul>
-                              </p>
-                          </ul>
-                      </div>
-                  </div>
-                   <div class="modal-footer">
-                     <button type="button" class="btn btn-default">Guardar Resultados</button>
-                   </div>
-                 </div>
-               </div>
-             </div>
+
+                <br/><br/><br/>
+
+                <footer class="footer text-center">
+                    <div class="container">
+                        <a href="http://antonioalmeida.me"><i class="fa fa-code"></i> AA</a>
+                    </div>
+                </footer>
+
+                <!--  Google analytics -->
+                <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-65760659-3', 'auto');
+                ga('send', 'pageview');
+
+                </script>
 
 
+                <!--  jQuery (necessary for Bootstrap's JavaScript plugins)  -->
+                <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
 
-
-          <!--  Markup tooltip  -->
-          <div class="tooltip left" role="tooltip">
-            <div class="tooltip-arrow"></div>
-            <div class="tooltip-inner">
-              Some tooltip text!
-            </div>
-          </div>
-
-
-          <br/><br/><br/>
-
-          <footer class="footer text-center">
-            <div class="container">
-                <a href="http://antonioalmeida.me"><i class="fa fa-code"></i> AA</a>
-                </div>
-              </footer>
-
-              <!--  Google analytics -->
-              <script>
-              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-              ga('create', 'UA-65760659-3', 'auto');
-              ga('send', 'pageview');
-
-              </script>
-
-
-              <!--  jQuery (necessary for Bootstrap's JavaScript plugins)  -->
-              <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-
-
-              <!--  Include all compiled plugins (below), or include individual files as needed  -->
-              <script src="js/bootstrap.min.js"></script>
-              <!--  clipboardjs  -->
-              <script src="clipboard.js/dist/clipboard.min.js"></script>
-              <!--  custom js for calculation  -->
-              <script src="js/script.js" type="text/javascript"></script>
+                <!--  Include all compiled plugins (below), or include individual files as needed  -->
+                <script src="js/bootstrap.min.js"></script>
+                <!--  clipboardjs  -->
+                <script src="clipboard.js/dist/clipboard.min.js"></script>
+                <!--  custom js for calculation  -->
+                <script src="js/script.js" type="text/javascript"></script>
 
 
 

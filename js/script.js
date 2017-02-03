@@ -2,8 +2,7 @@
 //Clipboardjs
 var clipboard = new Clipboard('.clip', {
   text: function() {
-    return 'http://simulcand.whoisantonio.com';
-  }
+    return 'http://antonioalmeida.me/simulador-candidatura';
 });
 
 clipboard.on('success', function(e) {

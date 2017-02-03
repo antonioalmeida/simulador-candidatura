@@ -1,18 +1,6 @@
-.extra-exams-table{
-  width: 310px;
-  table-layout: fixed;
-  margin: auto;
-}
-
-.adjust-position{
-  margin: 25px auto;
-}
-
-.smaller-table-header{
-  font-size: 13px;
-  color: black;
-  text-align: center;
-  /*TODO: Turn text into a pretty thing :D*/
+#calculate {
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 .grade {
@@ -20,22 +8,22 @@
 }
 
 .no-bullets {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .jumbotron {
-  background-color: rgb(57, 149, 247);
+    background-color: rgb(57, 149, 247);
 }
 .jumbotron h1 {
-  color: white;
-  font-size: 50px;
+    color: white;
+    font-size: 50px;
 }
 .jumbotron p {
-  color: #D3D3D4;
+    color: #D3D3D4;
 }
 footer {
-  padding: 20px;
-  background-color: rgb(57, 149, 247);
+    padding: 20px;
+    background-color: rgb(57, 149, 247);
 }
 
 footer a {
@@ -47,27 +35,27 @@ footer a:hover {
 }
 
 .btn-default {
-  color: #fff;
-  background-color: rgb(57, 149, 247);
-  border-color: #fff;
+    color: #fff;
+    background-color: rgb(57, 149, 247);
+    border-color: #fff;
 }
 .btn-default:focus,
 .btn-default.focus {
-  color: #333;
-  background-color: #e6e6e6;
-  border-color: #8c8c8c;
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #8c8c8c;
 }
 .btn-default:hover {
-  color: #eee;
-  background-color: #327ED5;
-  border-color: #adadad;
+    color: #eee;
+    background-color: #327ED5;
+    border-color: #adadad;
 }
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
-  color: #333;
-  background-color: #327ED5;
-  border-color: #adadad;
+    color: #333;
+    background-color: #327ED5;
+    border-color: #adadad;
 }
 .btn-default:active:hover,
 .btn-default.active:hover,
@@ -78,9 +66,9 @@ footer a:hover {
 .btn-default:active.focus,
 .btn-default.active.focus,
 .open > .dropdown-toggle.btn-default.focus {
-  color: #eee;
-  background-color: #327ED5;
-  border-color: #8c8c8c;
+    color: #eee;
+    background-color: #327ED5;
+    border-color: #8c8c8c;
 }
 .btn-default.disabled,
 .btn-default[disabled],
@@ -100,21 +88,21 @@ fieldset[disabled] .btn-default:active,
 .btn-default.disabled.active,
 .btn-default[disabled].active,
 fieldset[disabled] .btn-default.active {
-  background-color: #fff;
-  border-color: #ccc;
+    background-color: #fff;
+    border-color: #ccc;
 }
 .btn-default .badge {
-  color: #fff;
-  background-color: #fff;
+    color: #fff;
+    background-color: #fff;
 }
 
 .navbar-default {
-  background-color: #fff;
+    background-color: #fff;
 }
 .navbar-brand span, .navbar-brand i, #bs-example-navbar-collapse-1 a {
-  color: rgb(57, 149, 247);
-  font-weight: bold;
+    color: rgb(57, 149, 247);
+    font-weight: bold;
 }
 .navbar {
-  margin-bottom:0;
+    margin-bottom:0;
 }
