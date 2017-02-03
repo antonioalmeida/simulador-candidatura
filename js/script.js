@@ -3,6 +3,7 @@
 var clipboard = new Clipboard('.clip', {
   text: function() {
     return 'http://antonioalmeida.me/simulador-candidatura';
+}
 });
 
 clipboard.on('success', function(e) {
