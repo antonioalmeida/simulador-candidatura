@@ -7,9 +7,10 @@
     <meta name="description" content="Página desenvolvida com o intuito de ajudar alunos de final de secundário no cálculo da nota de entrada com a qual se candidatam ao Ensino Superior, tendo em conta
     as notas finais das disciplinas e os respetivos exames."/>
     <!--  The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags  -->
+    <link hreflang="pt-pt"/>
 
     <!--  Facebook Meta Tags  -->
-    <meta property="og:url" content="http://antonioalmeida.me/simulador-candidatura"/>
+    <meta property="og:url" content="http://uniarea.github.io/ensino-normal"/>
     <meta property="og:type" content="products"/>
     <meta property="og:title" content="Simulador Nota de Candidatura ao Ensino Superior"/>
     <meta property="og:description" content="Página desenvolvida com o intuito de ajudar alunos de final de secundário no cálculo da nota de entrada com a qual se candidatam ao Ensino Superior, tendo em conta as notas finais das disciplinas e os respetivos exames"/>
@@ -24,7 +25,6 @@
     <!--  Bootstrap & CSS -->
     <link href="css/bootstrap.css" rel="stylesheet"/>
     <link href="css/extra.css" rel="stylesheet"/>
-    <link hreflang="pt-pt"/>
     <link rel="shortcut icon" href="logo.ico"/>
     <!--  Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"/>
@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="./index.html" class="navbar-brand" href"="" "=""><i class="fa fa-calculator" aria-hidden="true"></i> <span>SNCES</span></a>
+                <a href="./index.html" class="navbar-brand" href"="" "=""><i class="fa fa-calculator" aria-hidden="true"></i> <span>Uni<span class="text-red">area</span></span></a>
             </div>
 
 
@@ -59,7 +59,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-square-o" aria-hidden="true"></i> Partilhar <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="https://www.facebook.com/dialog/share?app_id=1197350313623139&display=popup&href=http://antonioalmeida.me/simulador-candidatura&redirect_uri=http://antonioalmeida.me/simulador-candidatura"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+                            <li><a href="https://www.facebook.com/dialog/share?app_id=1197350313623139&display=popup&href=http://uniarea.github.io/ensino-normal&redirect_uri=http://uniarea.github.io/ensino-normal"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
                             <li><a href="https://twitter.com/home?status=N%C3%A3o%20sabes%20como%20calcular%20a%20tua%20Nota%20de%20Candidatura%20ao%20Ensino%20Superior?%20Experimenta%20o%20http%3A//antonioalmeida.me/simulador-candidatura"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
                             <li><a href="https://plus.google.com/share?url=http%3A//antonioalmeida.me/simulador-candidatura"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Google+</a></li>
                             <li><a href="mailto:?&body=N%C3%A3o%20sabes%20como%20calcular%20a%20tua%20Nota%20de%20Candidatura%20ao%20Ensino%20Superior?%20Experimenta%20o%20http%3A//antonioalmeida.me/simulador-candidatura"><i class="fa fa-envelope" aria-hidden="true"></i> Email</a></li>
@@ -76,15 +76,10 @@
 
     <div class="jumbotron">
         <div class="container">
-            <h1><i class="fa fa-calculator" aria-hidden="true"></i>
-                Simulador Nota de Candidatura ao Ensino Superior <sup><i>BETA</i></sup>
-            </h1>
-            <p>Página desenvolvida com o intuito de ajudar alunos de final de secundário no cálculo da nota de entrada com a qual se candidatam ao Ensino Superior, tendo em conta
-                as notas finais das disciplinas e os respetivos exames.
-            </p>
-            </div>
+            <h1>Simulador de Candidatura Uni<span class="text-red">area</span><br>
+            <small><i class="fa fa-users"></i> Ensino Científico-Humanístico</small>
         </div>
-
+    </div>
         <div class="container">
             <h2>Como usar?</h2>
             <ol>
@@ -457,7 +452,7 @@
                                 <input class="grade" type="number" id="accessPercentage" min="0" max="100" value="50"/> % <br/>
                             <br/>
                             <!-- Button trigger modal -->
-                            <button type="button" onclick="displayScores()" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
+                            <button type="button" onclick="displayScores()" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">
                                 Calcular
                             </button>
                         </div>
@@ -532,7 +527,7 @@
 
                 <footer class="footer text-center">
                     <div class="container">
-                        <a href="http://antonioalmeida.me"><i class="fa fa-code"></i> AA</a>
+                        <i class="fa fa-code"></i> by <a href="http://antonioalmeida.me"><i class="fa fa-user"></i></a> & <a href="http://cyrilico.github.io"><i class="fa fa-user"></i></a> for <a href="http://uniarea.com">Uni<span class=text-red>area</span></a>
                     </div>
                 </footer>
 
