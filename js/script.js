@@ -28,6 +28,7 @@ $(document).ready(function() {
         $(this).next().toggle();
         $(this).next().val('0');
         $(this).next().next().toggle();
+        $(this).next().next().next().toggle();
     });
 
     //Bootstap's tooltip
