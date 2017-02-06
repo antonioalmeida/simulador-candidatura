@@ -33,7 +33,6 @@ $(document).ready(function() {
 
     //Bootstap's tooltip
     $('[data-toggle="tooltip"]').tooltip();
-
 });
 
 
@@ -335,4 +334,41 @@ var displayScores = function() {
     $("#finalScoreSportSecondPhase").html(finalScoreSport[1]);
 
     console.log("Values displayed!");
+}
+
+//Save scores to text file
+var saveScores = function(){
+  var results = "CFDs - Classificações Finais das Disciplinas (1ªFase | 2ªFase):\r\n";
+  var cfds = calculateAllCFDs();
+  var subjects = ["Português", "Filosofia", "Língua Estrangeira", "Educação Física", "Trienal Específica", "Bienal I", "Bienal II", "Anual I", "Anual II"];
+  //CFDs
+  for(var i = 0; i < subjects.length; i++){
+    results += subjects[i] + ": " + cfds[i][0] + " | " + cfds[i][1] + "\r\n";
+  }
+  results += "\nQue resulta nas seguintes médias finais do ensino secundário:\r\n";
+  //Final internal score
+  var internalscores = calculateInternalScores();
+  var internalscoresport = calculateInternalScoresSport();
+  for(var j = 0; j < 2; j++){
+  results += j+1 + "ª Fase:\r\n";
+  results += "Cursos área Desporto: " + internalscoresport[j] + "\r\n";
+  results += "Cursos restantes áreas: " + internalscores[j] + "\r\n\r\n";
+  }
+  //Access scores
+  var accesscores = calculateAccessScores();
+  results += "Média da(s) prova(s) de ingresso:\r\n";
+  results += "1ª Fase: " + accesscores[0] + " | 2ª Fase: " + accesscores[1] + "\r\n\r\n";
+  //Final scores
+  var finalscores = calculateFinalScore();
+  var finalscoresport = calculateFinalScoreSport();
+  results += "Os resultados conduzem à seguinte nota de candidatura:\r\n";
+  for(var k = 0; k < 2; k++){
+    results += k+1 + "ª Fase:\r\n";
+    results += "Cursos área Desporto: " + finalscores[k] + "\r\n";
+    results += "Cursos restantes áreas: " + finalscoresport[k] + "\r\n\r\n";
+  }
+  results += "Obrigado por utilizares a nossa calculadora!\r\n";
+  //Actually save data in resultados.txt
+  var blob = new Blob([results], {type: "text/plain;charset=utf-8"});
+  saveAs(blob, "resultados.txt");
 }
