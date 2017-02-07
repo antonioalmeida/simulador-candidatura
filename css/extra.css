@@ -29,6 +29,10 @@
     color: #D3D3D4;
 }
 
+#side-note {
+    padding-top: 40px;
+}
+
 footer {
     padding: 20px;
     background-color: rgb(39, 39, 39);
@@ -46,6 +50,7 @@ footer a:hover {
 .navbar-default {
     background-color: #fff;
 }
+
 .navbar-brand span, .navbar-brand i, #bs-example-navbar-collapse-1 a {
     color: rgb(39, 39, 39);
     font-weight: bold;
@@ -61,4 +66,21 @@ footer a:hover {
 
 .btn {
     font-weight: bold;
+}
+
+b[role=help], span[role=help] {
+    cursor:help;    
+}
+
+
+/* Vertically center text inside a div (taken from CSS-tricks.com) */
+.vertically-center {
+  display: table;
+  margin-top: 20px;
+}
+.vertically-center p {
+  display: table-cell;
+  margin: 0;
+  padding: 20px;
+  vertical-align: middle;
 }
