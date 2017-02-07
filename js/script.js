@@ -2,7 +2,7 @@
 //Clipboardjs
 var clipboard = new Clipboard('.clip', {
   text: function() {
-    return 'http://antonioalmeida.me/simulador-candidatura';
+    return 'https://uniarea.github.io';
 }
 });
 
