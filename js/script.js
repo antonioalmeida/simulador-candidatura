@@ -304,7 +304,7 @@ var calculateFinalScoreSport = function() {
 //Display scores on screen
 var displayScores = function() {
     var accessExamsWeight = $("#accessPercentage").val();
-    var internalScoreWeight = accessExamsWeight;
+    var internalScoreWeight = 100 - accessExamsWeight;
 
     var accessExamsScore = calculateAccessScores();
 
