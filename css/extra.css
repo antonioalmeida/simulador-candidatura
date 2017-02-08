@@ -3,6 +3,10 @@
     padding-bottom: 2%;
 }
 
+#inputError {
+    display: none;
+}
+
 .text-red {
     color: rgb(248, 43, 43);
 }
@@ -69,7 +73,7 @@ footer a:hover {
 }
 
 b[role=help], span[role=help] {
-    cursor:help;    
+    cursor:help;
 }
 
 

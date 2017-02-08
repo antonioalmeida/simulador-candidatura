@@ -301,8 +301,56 @@ var calculateFinalScoreSport = function() {
     return [firstPhase, secondPhase];
 }
 
+//Verify input
+var verifyInput = function() {
+
+    //Units' grades (1-20)
+    var units = [];
+
+    //Exams' grades (0-200)
+    var exams = [];
+
+    //Access Values (Provas de Ingresso (sim-nao))
+    var accessValues = getAccessValues();
+
+    //Get unit's and exams' values
+    for(var i = 0; i < 9; i++) {
+        units.push($('input[name^=grade' + i + ']').map(function(idx, elem) {
+            return parseInt($(elem).val());
+        }).get());
+
+        exams.push(getUnitExams(i));
+    }
+
+    units = steamrollArray(units).filter(function(val) {
+        return val >= 1 && val <= 21 && $.isNumeric(val);
+    })
+
+    exams = steamrollArray(exams).filter(function(val) {
+        return val >= 0 && val <= 200 && $.isNumeric(val);
+    })
+
+    accessValues = accessValues.filter(function(val) {
+        return val == 'yes';
+    })
+
+    // 19 and 36 -> number of input boxes
+    if(units.length != 19 || exams.length != 36 || accessValues.length == 0)
+        displayError();
+}
+
+var displayError = function() {
+    $("#inputError").css("display","block");
+}
+
 //Display scores on screen
 var displayScores = function() {
+    //Reset error state
+    $("#inputError").css("display","none");
+
+    //Verify input but calculate anyway
+    verifyInput();
+
     var accessExamsWeight = $("#accessPercentage").val();
     var internalScoreWeight = 100 - accessExamsWeight;
 
@@ -373,4 +421,25 @@ var saveScores = function(){
     //Actually save data in resultados.txt
     var blob = new Blob([results], {type: "text/plain;charset=utf-8"});
     saveAs(blob, "resultados.txt");
+}
+
+//Auxiliary functions to transform matrix-like structures into array
+function steamrollAux(arr){
+  for(var i = 0; i < arr.length; i++){
+    if(!Array.isArray(arr[i]))
+      result.push(arr[i]);
+    else
+      steamrollAux(arr[i]);
+  }
+}
+
+function steamrollArray(arr) {
+  result = [];
+  for(var i = 0; i < arr.length; i++){
+    if(!Array.isArray(arr[i]))
+      result.push(arr[i]);
+    else
+      steamrollAux(arr[i]);
+  }
+  return result;
 }
