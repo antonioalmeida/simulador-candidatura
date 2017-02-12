@@ -499,7 +499,7 @@
 
             <!-- Results Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -507,7 +507,9 @@
                         </div>
                         <div class="modal-body">
                             <div id="inputError">
-                                <div class="alert alert-danger" role="alert">Introduziste valores que não estão dentro dos seus limites, os resultados não são válidos. Verifica os valores e repete o cálculo.</div>
+                                <div class="alert alert-danger" role="alert">Introduziste valores que não são coerentes. Corrige o(s) seguinte(s) erro(s) e calcula novamente:
+                                    <ul id="inputErrorText"></ul>
+                                </div>
                             </div>
                             <div class="container">
                                 <p>

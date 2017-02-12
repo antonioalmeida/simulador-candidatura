@@ -64,7 +64,6 @@ var calculateCIFs = function() {
     var res = [];
     for(var i = 0; i < 9; i++)
         res.push(calculateUnitInternalScore(i));
-    return res;
 }
 
 //Calculates CFD for the unit at 'index'
@@ -333,19 +332,36 @@ var verifyInput = function() {
     accessValues = accessValues.filter(function(val) {
         return val == 'yes';
     })
+   
+    var hasError = false;
+    var errors = "";
 
     // 19 and 36 -> number of input boxes
-    if(units.length != 19 || exams.length != 36 || accessValues.length == 0)
-        displayError();
-}
+    if(units.length != 19) {
+        hasError = true;
+       errors += "<li>Há pelo menos uma nota de disciplina com um valor inválido.</li>";
+    }
+    
+    if(exams.length != 36) {
+        hasError = true;
+       errors += "<li>Há pelo menos uma nota de exame com um valor inválido.</li>"; 
+    }
 
-var displayError = function() {
-    $("#inputError").css("display","block");
+    if(accessValues.length == 0) {
+        hasError = true;
+        errors += "<li>Tens de ter pelo menos uma disciplina marcada com \"Sim\" na coluna de <strong>Provas de Ingresso</strong>.</li>";
+    }
+
+    if(hasError) {
+        $("#inputErrorText").append(errors);
+        $("#inputError").css("display","block");
+    }
 }
 
 //Display scores on screen
 var displayScores = function() {
     //Reset error state
+    $("#inputErrorText").empty();
     $("#inputError").css("display","none");
 
     //Verify input but calculate anyway
