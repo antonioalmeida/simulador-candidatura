@@ -33,6 +33,15 @@ $(document).ready(function() {
 
     //Bootstap's tooltip
     $('[data-toggle="tooltip"]').tooltip();
+
+    $("#option1").click(function() {
+        console.log("ola");
+       $("#bottomTable").collapse('show');
+    });
+    $("#option2").click(function() {
+        console.log("adeus");
+        $("#bottomTable").collapse('hide');
+    });
 });
 
 

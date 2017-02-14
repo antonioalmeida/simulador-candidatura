@@ -3,6 +3,10 @@
     padding-bottom: 2%;
 }
 
+#bottomTable {
+    padding-top: 15px;
+}
+
 #inputError {
     display: none;
 }
