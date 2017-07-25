@@ -156,60 +156,60 @@ var calculateCFDType1 = function(index) {
     if(!currentExams[5]) { // Não realizou Exame 1ª Fase Externo
         if(currentExams[2]) { // Exame 2ª Fase Interno
             if(currentExams[4]) {// Exame 2ª Fase -> checkbox ano anterior
-                firstPhase = Math.round(0.7 * internal + 0.3 * Math.max(exam1a, exam2a));
+                firstPhase = Math.round( (7 * internal + 3 * Math.max(exam1a, exam2a))/10 );
                 secondPhase = firstPhase;
             }
             else {
-                firstPhase = Math.round(0.7 * internal + 0.3 * exam1a);
-                secondPhase = Math.round(0.7* internal + 0.3 * Math.max(exam1a, exam2a))
+                firstPhase = Math.round( (7 * internal + 3 * exam1a)/10 );
+                secondPhase = Math.round( (7 * internal + 3 * Math.max(exam1a, exam2a))/10 );
             }
         }
         else { //Não realizou exame 2ª Fase Interno
-            firstPhase = Math.round(0.7 * internal + 0.3 * exam1a);
+            firstPhase = Math.round((7 * internal + 3 * exam1a)/10);
             secondPhase = firstPhase;
         }
     }
     else { //Realizou Exame 1ª Fase Externo
         if(!currentExams[2] && !currentExams[7]) { //Não realizou Exame 2ª Fase Interno nem Exame 2ª Fase Externo
-            firstPhase = Math.round(Math.max(0.7*internal + 0.3*exam1a,exam1b));
+            firstPhase = Math.round(Math.max( (7*internal + 3*exam1a)/10, exam1b));
             secondPhase = firstPhase;
         }
         else if(currentExams[2] && !currentExams[7]) { //Realizou Interno 2ª Fase mas não realizou Externo 2ª Fase
             if(currentExams[4]) { //Exame 2ª Fase Interno de ano anterior
-                firstPhase = Math.round(Math.max(0.7*internal + 0.3 * Math.max(exam1a,exam2a), exam1b));
-                secondPhase = Math.round(Math.max(firstPhase, 0.7*internal + 0.3*exam2a));
+                firstPhase = Math.round(Math.max( (7*internal + 3*Math.max(exam1a,exam2a))/10, exam1b));
+                secondPhase = Math.round(Math.max(firstPhase, (7*internal + 3*exam2a)/10 ));
             }
             else {
-                firstPhase = Math.round(Math.max(0.7*internal + 0.3*exam1a, exam1b));
-                secondPhase = Math.round(Math.max(0.7*internal + 0.3*Math.max(exam1a,exam2a), exam1b));
+                firstPhase = Math.round(Math.max( (7*internal + 3*exam1a)/10 , exam1b));
+                secondPhase = Math.round(Math.max( (7*internal + 3*Math.max(exam1a,exam2a))/10 , exam1b));
             }
         }
         else if(!currentExams[2] && currentExams[7]) { //Não realizou Interno 2ª Fase e realizou Externo 2ª Fase
             if(currentExams[9]) { //Exame Externo 2ª Fase de ano anterior
-                firstPhase = Math.round(Math.max(0.7*internal + 0.3*exam1a,exam1b,exam2b));
+                firstPhase = Math.round(Math.max( (7*internal + 3*exam1a)/10 , exam1b, exam2b));
                 secondPhase = firstPhase;
             }
             else {
-                firstPhase = Math.round(Math.max(0.7*internal + 0.3*exam1a,exam1b));
+                firstPhase = Math.round(Math.max( (7*internal + 3*exam1a)/10, exam1b));
                 secondPhase = Math.round(Math.max(firstPhase, exam2b));
             }
         }
         else { //Realizou Interno 2ª Fase e Externo 2ª Fase
             if(currentExams[4] && currentExams[9]) { //Interno 2ª Fase e Externo 2ª Fase são de ano anterior
-                firstPhase = Math.round(Math.max(0.7*internal + 0.3*Math.max(exam1a,exam2a), exam1b, exam2b));
+                firstPhase = Math.round(Math.max( (7*internal + 3*Math.max(exam1a,exam2a))/10 , exam1b, exam2b));
                 secondPhase = firstPhase;
             }
             else if(!currentExams[4] && currentExams[9]) { //Apenas Externo 2ª Fase ano anterior
-                firstPhase = Math.round(Math.max(0.7*internal + 0.3*exam1a, exam1b, exam2b));
-                secondPhase = Math.round(Math.max(firstPhase, 0.7*internal + 0.3*exam2a));
+                firstPhase = Math.round(Math.max( (7*internal + 3*exam1a)/10, exam1b, exam2b));
+                secondPhase = Math.round(Math.max(firstPhase, (7*internal + 3*exam2a)/10 ));
             }
             else if(currentExams[4] && !currentExams[9]) { //Apenas Interno 2ª Fase ano anterior
-                firstPhase = Math.round(Math.max(0.7*internal + 0.3*Math.max(exam1a, exam2a, exam1b)));
+                firstPhase = Math.round(Math.max( (7*internal + 3*Math.max(exam1a, exam2a, exam1b))/10 ));
                 secondPhase = Math.round(Math.max(firstPhase,exam2b));
             }
             else {
-                firstPhase = Math.round(Math.max(0.7*internal + 0.3*exam1a, exam1b));
-                secondPhase = Math.round(Math.max(firstPhase, 0.7*internal + 0.3*exam2a, exam2b));
+                firstPhase = Math.round(Math.max( (7*internal + 3*exam1a)/10, exam1b));
+                secondPhase = Math.round(Math.max(firstPhase, (7*internal + 3*exam2a)/10, exam2b));
             }
         }
     }
