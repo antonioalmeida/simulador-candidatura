@@ -136,6 +136,8 @@
             Se estás num telemóvel ou tablet, aconselhamos-te a utilizar a ferramenta em modo <strong>horizontal</strong> <sub><i class="material-icons">stay_current_landscape</i></sub>.
             </p>
 
+            <p><strong>ATENÇÃO:</strong> De acordo com as regras em vigor para o acesso ao ensino superior em 2020/21, várias alterações foram feitas. Por exemplo, os exames nacionais realizados este ano não têm influência na CFD, pelo que efetivamente todos serão na condição de externo. Devido à grande variedade de casos distintos possíveis, poderás sentir alguma dificuldade em preencher os valores e condições aplicáveis a ti. Novamente, se for o caso, não hesites e pergunta no fórum!</p>
+
             <p><b>
             Os cálculos efetuados e resultados apresentados não constituem de forma alguma informações oficiais
           </b></p>
@@ -185,6 +187,8 @@
                         <td>
                             <input class="checker" type="checkbox" name="exam0[]" checked hidden>
                             <input class="grade" type="number" id="examept" min="0" max="200" name="exam0[]" value="100"/>
+                            <input type="checkbox" name="examintern0[]">
+                            <b href="#" data-placement="right" data-toggle="tooltip" role="help" title="" class="small" data-original-title="Assinalar a caixa se o exame foi realizado em ano anterior ao ano de candidatura.">(?)</b>
                         </td>
 
                         <td>
@@ -196,6 +200,8 @@
                         <td>
                             <input class="checker" type="checkbox" name="exam0[]">
                             <input class="grade" type="number" value="100" name="exam0[]" hidden>
+                            <input type="checkbox" name="examextern0[]" hidden>
+                            <b href="#" data-placement="right" data-toggle="tooltip" role="help" title="" class="small" data-original-title="Assinalar a caixa se o exame foi realizado em ano anterior ao ano de candidatura." hidden>(?)</b>
                         </td>
                         <td>
                             <input class="checkerPhase2" type="checkbox" name="exam0[]" >
@@ -218,6 +224,8 @@
                         <td>
                             <input class="checker" type="checkbox" name="exam1[]">
                             <input class="grade" type="number" min="0" max="200" name="exam1[]" value="100" hidden/>
+                            <input type="checkbox" name="examintern1[]" hidden>
+                            <b href="#" data-placement="right" data-toggle="tooltip" role="help" title="" class="small" data-original-title="Assinalar a caixa se o exame foi realizado em ano anterior ao ano de candidatura." hidden>(?)</b>
                         </td>
 
                         <td>
@@ -229,6 +237,8 @@
                         <td>
                             <input class="checker" type="checkbox" name="exam1[]">
                             <input class="grade" type="number" value="100" name="exam1[]" hidden>
+                            <input type="checkbox" name="examextern1[]" hidden>
+                            <b href="#" data-placement="right" data-toggle="tooltip" role="help" title="" class="small" data-original-title="Assinalar a caixa se o exame foi realizado em ano anterior ao ano de candidatura." hidden>(?)</b>
                         </td>
                         <td>
                             <input class="checkerPhase2" type="checkbox" name="exam1[]">
@@ -314,6 +324,8 @@
                         <td>
                             <input class="checker" type="checkbox" name="exam4[]" checked hidden>
                             <input class="grade" type="number" min="0" max="200" name="exam4[]" value="100"/>
+                            <input type="checkbox" name="examintern4[]">
+                            <b href="#" data-placement="right" data-toggle="tooltip" role="help" title="" class="small" data-original-title="Assinalar a caixa se o exame foi realizado em ano anterior ao ano de candidatura.">(?)</b>
                         </td>
 
                         <td>
@@ -325,6 +337,8 @@
                         <td>
                             <input class="checker" type="checkbox" name="exam4[]">
                             <input class="grade" type="number" value="100" name="exam4[]" hidden>
+                            <input type="checkbox" name="examextern4[]" hidden>
+                            <b href="#" data-placement="right" data-toggle="tooltip" role="help" title="" class="small" data-original-title="Assinalar a caixa se o exame foi realizado em ano anterior ao ano de candidatura." hidden>(?)</b>
                         </td>
                         <td>
                             <input class="checkerPhase2" type="checkbox" name="exam4[]">
@@ -353,8 +367,11 @@
 
                         <td>
                             <input class="checker" type="checkbox" name="exam5[]" checked>
-                            <input class="grade" type="number" min="0" max="200" name="exam5[]" value="100"/></td>
-
+                            <input class="grade" type="number" min="0" max="200" name="exam5[]" value="100"/>
+                            <input type="checkbox" name="examintern5[]">
+                            <b href="#" data-placement="right" data-toggle="tooltip" role="help" title="" class="small" data-original-title="Assinalar a caixa se o exame foi realizado em ano anterior ao ano de candidatura.">(?)</b>
+                        
+                        </td>
                         <td>
                             <input class="checkerPhase2" type="checkbox" name="exam5[]">
                             <input class="grade" type="number" value="100" name="exam5[]" hidden>
@@ -364,6 +381,8 @@
                         <td>
                             <input class="checker" type="checkbox" name="exam5[]">
                             <input class="grade" type="number" value="100" name="exam5[]" hidden>
+                            <input type="checkbox" name="examextern5[]" hidden>
+                            <b href="#" data-placement="right" data-toggle="tooltip" role="help" title="" class="small" data-original-title="Assinalar a caixa se o exame foi realizado em ano anterior ao ano de candidatura." hidden>(?)</b>
                         </td>
                         <td>
                             <input class="checkerPhase2" type="checkbox" name="exam5[]">
@@ -392,8 +411,10 @@
 
                         <td>
                             <input class="checker" type="checkbox" name="exam6[]" checked>
-                            <input class="grade" type="number" min="0" max="200" name="exam6[]" value="100"/></td>
-
+                            <input class="grade" type="number" min="0" max="200" name="exam6[]" value="100"/>
+                            <input type="checkbox" name="examintern6[]">
+                            <b href="#" data-placement="right" data-toggle="tooltip" role="help" title="" class="small" data-original-title="Assinalar a caixa se o exame foi realizado em ano anterior ao ano de candidatura.">(?)</b>
+                        </td>
                         <td>
                             <input class="checkerPhase2" type="checkbox" name="exam6[]">
                             <input class="grade" type="number" value="100" name="exam6[]" hidden>
@@ -403,6 +424,8 @@
                         <td>
                             <input class="checker" type="checkbox" name="exam6[]">
                             <input class="grade" type="number" value="100" name="exam6[]" hidden>
+                            <input type="checkbox" name="examextern6[]" hidden>
+                            <b href="#" data-placement="right" data-toggle="tooltip" role="help" title="" class="small" data-original-title="Assinalar a caixa se o exame foi realizado em ano anterior ao ano de candidatura." hidden>(?)</b>
                         </td>
                         <td>
                             <input class="checkerPhase2" type="checkbox" name="exam6[]">
@@ -666,7 +689,7 @@
         <footer class="footer text-center">
             <div class="container">
               <p>
-              &copy; Uni<span class="text-red">area</span>, 2017 by AA & CD <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+              &copy; Uni<span class="text-red">area</span>, 2020 by AA & CD <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
           </p>
             </div>
         </footer>

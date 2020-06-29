@@ -28,7 +28,9 @@ $(document).ready(function() {
     //Toggle grades' box when respective checkbox is clicked
     $(".checker").click(function() {
         $(this).next().toggle();
-        $(this).next().val('0')
+        $(this).next().val('0');
+        $(this).next().next().toggle();
+        $(this).next().next().next().toggle();
     });
 
     //Same as above but specific for 2nd phase exams
@@ -149,34 +151,57 @@ var calculateCFDType1 = function(index) {
 
     //Normalize exam results (from 1-200 to 1-20)
     var exam1a = Math.round(currentExams[1]*0.1); //Interno 1ª Fase
+    let exam1aFromThisYear = !$('input[name^=examintern' + index + ']').is(':checked');
     var exam2a = Math.round(currentExams[3]*0.1); //Interno 2ª Fase
+    let exam2aFromThisYear = !currentExams[4];
     var exam1b = Math.round(currentExams[6]*0.1); //Externo 1ª Fase
+    let exam1bFromThisYear = !$('input[name^=examextern' + index + ']').is(':checked');
     var exam2b = Math.round(currentExams[8]*0.1); //Externo 2ª Fase
+    let exam2bFromThisYear = !currentExams[7];
 
     if(!currentExams[5]) { // Não realizou Exame 1ª Fase Externo
         if(currentExams[2]) { // Exame 2ª Fase Interno
             if(currentExams[4]) {// Exame 2ª Fase -> checkbox ano anterior
-                firstPhase = Math.round( (7 * internal + 3 * Math.max(exam1a, exam2a))/10 );
+                if(!exam1aFromThisYear)
+                    firstPhase = Math.round( (7 * internal + 3 * Math.max(exam1a, exam2a))/10 );
+                else
+                    firstPhase =Math.round( (7 * internal + 3 * exam2a)/10 );
                 secondPhase = firstPhase;
             }
             else {
-                firstPhase = Math.round( (7 * internal + 3 * exam1a)/10 );
-                secondPhase = Math.round( (7 * internal + 3 * Math.max(exam1a, exam2a))/10 );
+                if(!exam1aFromThisYear)
+                    firstPhase = Math.round( (7 * internal + 3 * exam1a)/10 );
+                else
+                    firstPhase = internal;
+                if(!exam2aFromThisYear && !exam1aFromThisYear)
+                    secondPhase = Math.round( (7 * internal + 3 * Math.max(exam1a, exam2a))/10 );
+                else
+                    secondPhase = internal;
             }
         }
         else { //Não realizou exame 2ª Fase Interno
-            firstPhase = Math.round((7 * internal + 3 * exam1a)/10);
+            console.log("Here, boolean is " + exam1aFromThisYear);
+            if(!exam1aFromThisYear)
+                firstPhase = Math.round((7 * internal + 3 * exam1a)/10);
+            else
+                firstPhase = internal;
             secondPhase = firstPhase;
         }
     }
     else { //Realizou Exame 1ª Fase Externo
         if(!currentExams[2] && !currentExams[7]) { //Não realizou Exame 2ª Fase Interno nem Exame 2ª Fase Externo
-            firstPhase = Math.round(Math.max( (7*internal + 3*exam1a)/10, exam1b));
+            if(!exam1bFromThisYear)
+                firstPhase = Math.round(Math.max( (7*internal + 3*exam1a)/10, exam1b));
+            else
+                firstPhase = internal;
             secondPhase = firstPhase;
         }
         else if(currentExams[2] && !currentExams[7]) { //Realizou Interno 2ª Fase mas não realizou Externo 2ª Fase
             if(currentExams[4]) { //Exame 2ª Fase Interno de ano anterior
-                firstPhase = Math.round(Math.max( (7*internal + 3*Math.max(exam1a,exam2a))/10, exam1b));
+                if(!exam1bFromThisYear)
+                    firstPhase = Math.round(Math.max( (7*internal + 3*Math.max(exam1a,exam2a))/10, exam1b));
+                else
+                    firstPhase = Math.round((7*internal + 3*Math.max(exam1a,exam2a))/10);
                 secondPhase = Math.round(Math.max(firstPhase, (7*internal + 3*exam2a)/10 ));
             }
             else {
@@ -190,7 +215,8 @@ var calculateCFDType1 = function(index) {
                 secondPhase = firstPhase;
             }
             else {
-                firstPhase = Math.round(Math.max( (7*internal + 3*exam1a)/10, exam1b));
+                //firstPhase = Math.round(Math.max( (7*internal + 3*exam1a)/10, exam1b));
+                firstPhase = internal;
                 secondPhase = Math.round(Math.max(firstPhase, exam2b));
             }
         }
@@ -201,18 +227,24 @@ var calculateCFDType1 = function(index) {
             }
             else if(!currentExams[4] && currentExams[9]) { //Apenas Externo 2ª Fase ano anterior
                 firstPhase = Math.round(Math.max( (7*internal + 3*exam1a)/10, exam1b, exam2b));
-                secondPhase = Math.round(Math.max(firstPhase, (7*internal + 3*exam2a)/10 ));
+                //secondPhase = Math.round(Math.max(firstPhase, (7*internal + 3*exam2a)/10 ));
+                secondPhase = firstPhase;
             }
             else if(currentExams[4] && !currentExams[9]) { //Apenas Interno 2ª Fase ano anterior
                 firstPhase = Math.round(Math.max( (7*internal + 3*Math.max(exam1a, exam2a, exam1b))/10 ));
-                secondPhase = Math.round(Math.max(firstPhase,exam2b));
+                //secondPhase = Math.round(Math.max(firstPhase,exam2b));
+                secondPhase = firstPhase;
             }
             else {
                 firstPhase = Math.round(Math.max( (7*internal + 3*exam1a)/10, exam1b));
-                secondPhase = Math.round(Math.max(firstPhase, (7*internal + 3*exam2a)/10, exam2b));
+                //secondPhase = Math.round(Math.max(firstPhase, (7*internal + 3*exam2a)/10, exam2b));
+                secondPhase = firstPhase;
             }
         }
     }
+
+    firstPhase = Math.max(firstPhase, internal);
+    secondPhase = Math.max(secondPhase, internal);
 
     return [firstPhase,secondPhase];
 }
@@ -227,6 +259,8 @@ var calculateCFDType2 = function(index) {
     //Normalize exam results (from 1-200 to 1-20)
     var exam1b = Math.round(currentExams[6]*0.1); //Externo 1ª Fase
     var exam2b = Math.round(currentExams[8]*0.1); //Externo 2ª Fase
+    let exam1bFromThisYear = !$('input[name^=examextern' + index + ']').is(':checked');
+    let exam2bFromThisYear = !currentExams[7];
 
     if(!currentExams[5]) { //Não realizou Externo 1ª Fase
         firstPhase = internal;
@@ -235,19 +269,32 @@ var calculateCFDType2 = function(index) {
     else { //Realizou Externo 1ª Fase
         if(currentExams[7]) { //Realizou Externo 2ª Fase
             if(currentExams[9]) { //Externo 2ª Fase ano anterior
-                firstPhase = Math.round(Math.max(internal, exam1b, exam2b));
+                if(!exam1bFromThisYear)
+                    firstPhase = Math.round(Math.max(internal, exam1b, exam2b));
+                else
+                    firstPhase = Math.round(Math.max(internal, exam2b));
                 secondPhase = firstPhase;
             }
             else {
-                firstPhase = Math.round(Math.max(internal, exam1b));
-                secondPhase = Math.round(Math.max(firstPhase, exam2b));
+                if(!exam1bFromThisYear)
+                    firstPhase = Math.round(Math.max(internal, exam1b));
+                else
+                    firstPhase = internal;
+                //secondPhase = Math.round(Math.max(firstPhase, exam2b));
+                secondPhase = firstPhase;
             }
         }
         else{
-          firstPhase = Math.round(Math.max(internal,exam1b));
+            if(!exam1bFromThisYear)
+                firstPhase = Math.round(Math.max(internal, exam1b));
+            else
+                firstPhase = internal;
           secondPhase = firstPhase;
         }
     }
+
+    //firstPhase = Math.max(firstPhase, internal);
+    //secondPhase = Math.max(secondPhase, internal);
 
     return [firstPhase, secondPhase];
 }
